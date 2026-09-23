@@ -1,0 +1,1535 @@
+/* ===================================================================
+   doniyorbek.uz — Design System
+   Cloned from yangibaev.com with identical visual output.
+   =================================================================== */
+
+/* --- 1. CSS Custom Properties (Light Theme) --- */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --brand-color: #2a7ae2;
+  --brand-color-dark: #1756b4;
+  --on-brand-color: #ffffff;
+  --grey-color: #828282;
+  --grey-color-light: #f0f0f0;
+  --grey-color-dark: #616161;
+  --border-color: #e0e0e0;
+  --card-bg: #fafafa;
+  --code-bg: #f5f5f5;
+  --highlight-bg: #fafafa;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color-hover: rgba(0, 0, 0, 0.1);
+  --table-row-bg: #fafafa;
+  --table-header-bg: #f0f0f0;
+  --table-header-border: #e0e0e0;
+  --table-header-border-bottom: #d0d0d0;
+  --link-visited: #2a7ae2;
+  --svg-icon-fill: #828282;
+  --success-color: #2e7d32;
+  --success-color-dark: #1b5e20;
+  --success-bg: #f0f0f0;
+  --danger-color: #c62828;
+  --danger-color-dark: #b71c1c;
+  --danger-bg: #fbe9e9;
+  --warning-color: #b26500;
+  --warning-bg: #fafafa;
+  --warning-border: #b26500;
+  --muted-surface: rgba(0, 0, 0, 0.04);
+}
+
+/* --- 2. Dark Theme --- */
+[data-theme="dark"] {
+  --bg-color: #111111;
+  --text-color: #e0e0e0;
+  --brand-color: #7aa7ff;
+  --brand-color-dark: #5a90e0;
+  --on-brand-color: #111111;
+  --grey-color: #999999;
+  --grey-color-light: #1f1f1f;
+  --grey-color-dark: #cccccc;
+  --border-color: #2a2a2a;
+  --card-bg: #1a1a1a;
+  --code-bg: #0a0a0a;
+  --highlight-bg: #1a1a1a;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --shadow-color-hover: rgba(0, 0, 0, 0.6);
+  --table-row-bg: #1a1a1a;
+  --table-header-bg: #0a0a0a;
+  --table-header-border: #2a2a2a;
+  --table-header-border-bottom: #3a3a3a;
+  --link-visited: #7aa7ff;
+  --svg-icon-fill: #999999;
+  --success-color: #81c784;
+  --success-color-dark: #a5d6a7;
+  --success-bg: #1f1f1f;
+  --danger-color: #ef9a9a;
+  --danger-color-dark: #e57373;
+  --danger-bg: #2a1a1a;
+  --warning-color: #ffcc80;
+  --warning-bg: #1f1f1f;
+  --warning-border: #ffcc80;
+  --muted-surface: rgba(255, 255, 255, 0.04);
+}
+
+/* --- 3. Base Reset & Typography --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body {
+  font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+.highlight {
+  margin-bottom: 15px;
+}
+
+main {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+figure>img {
+  display: block;
+}
+
+figcaption {
+  font-size: 14px;
+}
+
+ul,
+ol {
+  margin-left: 30px;
+}
+
+li>ul,
+li>ol {
+  margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+a {
+  color: var(--brand-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+blockquote {
+  color: var(--grey-color);
+  border-left: 4px solid var(--border-color);
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+
+blockquote> :last-child {
+  margin-bottom: 0;
+}
+
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background-color: var(--code-bg);
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+}
+
+pre>code {
+  border: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* --- 4. Layout Wrapper --- */
+.wrapper {
+  max-width: calc(800px - (30px * 2));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    max-width: calc(800px - (30px));
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/* --- 5. Site Header --- */
+.site-header {
+  border-bottom: 1px solid var(--border-color);
+  min-height: 55.95px;
+  position: relative;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 54px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+}
+
+.site-title,
+.site-title:visited {
+  color: var(--text-color);
+}
+
+/* --- 6. Theme Toggle Button --- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--grey-color);
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 160px;
+  z-index: 10;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.theme-icon {
+  display: none;
+}
+
+[data-theme-preference="light"] .theme-icon-light,
+[data-theme-preference="dark"] .theme-icon-dark,
+[data-theme-preference="system"] .theme-icon-system {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .theme-toggle {
+    right: 70px;
+  }
+}
+
+/* --- 7. Site Navigation --- */
+.site-nav {
+  float: right;
+  line-height: 54px;
+}
+
+.site-nav .nav-trigger {
+  display: none;
+}
+
+.site-nav .menu-icon {
+  display: none;
+}
+
+.site-nav .page-link {
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.site-nav .page-link:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .site-nav {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-align: right;
+  }
+
+  .site-nav label[for="nav-trigger"] {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 36px;
+    line-height: 0;
+    padding-top: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .site-nav .menu-icon {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 26px;
+    line-height: 0;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .site-nav .menu-icon>svg {
+    fill: var(--text-color);
+  }
+
+  .site-nav input~.trigger {
+    clear: both;
+    display: none;
+  }
+
+  .site-nav input:checked~.trigger {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .site-nav .page-link {
+    display: block;
+    padding: 5px 10px;
+    margin-left: 20px;
+  }
+
+  .site-nav .page-link:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+/* --- 8. Page Content --- */
+.page-content {
+  padding: 30px 0;
+  flex: 1;
+}
+
+.page-content .wrapper {
+  padding-top: 0;
+}
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .post-title {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: 30px;
+}
+
+.post-content h2 {
+  font-size: 32px;
+}
+
+.post-content h3 {
+  font-size: 26px;
+}
+
+.post-content h4 {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .post-content h2 {
+    font-size: 28px;
+  }
+
+  .post-content h3 {
+    font-size: 22px;
+  }
+
+  .post-content h4 {
+    font-size: 18px;
+  }
+}
+
+/* --- 9. Profile Photo (Home Page) --- */
+.profile-photo-wrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* --- 10. Site Footer --- */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 30px 0;
+}
+
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.contact-list li span {
+  display: inline-flex;
+  align-items: center;
+  color: var(--svg-icon-fill);
+}
+
+.contact-list a {
+  color: var(--grey-color);
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  color: var(--brand-color);
+}
+
+.footer-col-wrapper {
+  font-size: 15px;
+  color: var(--grey-color);
+  margin-left: -15px;
+}
+
+.footer-col {
+  float: left;
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
+
+.footer-col-1 {
+  width: calc(50% - 15px);
+}
+
+.footer-col-3 {
+  width: calc(50% - 15px);
+}
+
+@media screen and (max-width: 600px) {
+
+  .footer-col-1,
+  .footer-col-3 {
+    width: calc(100% - 15px);
+  }
+}
+
+/* --- 11. Tables (General) --- */
+table {
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: left;
+  color: var(--text-color);
+  border-collapse: collapse;
+  border: 1px solid var(--border-color);
+}
+
+table th,
+table td {
+  padding: 8px 12px;
+}
+
+table th {
+  background-color: var(--table-header-bg);
+  border: 1px solid var(--table-header-border);
+  border-bottom-color: var(--table-header-border-bottom);
+}
+
+table td {
+  border: 1px solid var(--border-color);
+}
+
+table tr:nth-child(even) {
+  background-color: var(--table-row-bg);
+}
+
+/* ===================================================================
+   Codewars Section Styles
+   =================================================================== */
+
+/* --- Codewars Variables --- */
+:root {
+  --codewars-accent: #bb432c;
+  --codewars-accent-soft: rgba(187, 67, 44, 0.1);
+  --codewars-honor-gain: #2e7d32;
+  --codewars-hm-cell: 12px;
+  --codewars-heat-1: rgba(187, 67, 44, 0.2);
+  --codewars-heat-2: rgba(187, 67, 44, 0.45);
+  --codewars-heat-3: rgba(187, 67, 44, 0.7);
+  --codewars-heat-4: rgba(187, 67, 44, 0.95);
+}
+
+[data-theme="dark"] {
+  --codewars-accent: #e0654e;
+  --codewars-accent-soft: rgba(224, 101, 78, 0.12);
+  --codewars-honor-gain: #81c784;
+  --codewars-heat-1: rgba(224, 101, 78, 0.2);
+  --codewars-heat-2: rgba(224, 101, 78, 0.45);
+  --codewars-heat-3: rgba(224, 101, 78, 0.7);
+  --codewars-heat-4: rgba(224, 101, 78, 0.95);
+}
+
+/* --- Codewars Page Layout --- */
+.codewars-page {
+  margin-top: 10px;
+}
+
+.codewars-note {
+  color: var(--grey-color-dark);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.codewars-note a {
+  color: var(--codewars-accent);
+}
+
+.codewars-note a:hover {
+  text-decoration: underline;
+}
+
+/* --- Codewars Section Headings --- */
+.codewars-section {
+  margin-bottom: 40px;
+}
+
+.codewars-section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.codewars-section-heading h2 {
+  margin-bottom: 0;
+  font-size: 1.6rem;
+}
+
+.codewars-section-heading h3 {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--grey-color-dark);
+}
+
+/* --- Status Bar & Refresh Button --- */
+.codewars-status-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+}
+
+.codewars-muted {
+  color: var(--grey-color);
+}
+
+.codewars-status {
+  color: var(--grey-color);
+  font-size: 0.84rem;
+}
+
+.codewars-profile-name {
+  color: var(--codewars-accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.codewars-profile-name:hover {
+  text-decoration: underline;
+}
+
+.codewars-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border: 1px solid var(--codewars-accent);
+  border-radius: 6px;
+  color: var(--codewars-accent);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.codewars-profile-link:hover {
+  background: var(--codewars-accent);
+  color: var(--on-brand-color);
+  text-decoration: none;
+}
+
+.codewars-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--grey-color);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.codewars-refresh:hover {
+  color: var(--codewars-accent);
+  border-color: var(--codewars-accent);
+}
+
+.codewars-refresh:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.codewars-refresh.is-refreshing svg {
+  animation: codewars-spin 0.8s linear infinite;
+}
+
+@keyframes codewars-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Codewars Panel --- */
+.codewars-panel {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px;
+  background: var(--card-bg);
+  margin-bottom: 16px;
+}
+
+/* --- Codewars Clan Panels Grid --- */
+.codewars-clan-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* --- Codewars Clan Table --- */
+.codewars-clan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  border: none;
+  margin-bottom: 0;
+}
+
+.codewars-clan-table th,
+.codewars-clan-table td {
+  padding: 7px 10px;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.codewars-clan-table thead th {
+  background: var(--table-header-bg);
+  border-bottom: 2px solid var(--table-header-border-bottom);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--grey-color-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.codewars-clan-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.codewars-clan-table tbody tr:hover {
+  background: var(--muted-surface);
+}
+
+.codewars-clan-pos {
+  text-align: center;
+  color: var(--grey-color);
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+}
+
+.codewars-clan-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.codewars-clan-rank {
+  color: var(--grey-color-dark);
+  font-size: 0.84rem;
+}
+
+.codewars-clan-member {
+  color: var(--codewars-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.codewars-clan-member:hover {
+  text-decoration: underline;
+}
+
+.codewars-clan-active {
+  color: var(--grey-color);
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.codewars-clan-muted {
+  color: var(--grey-color);
+  font-style: italic;
+}
+
+.codewars-clan-honor-gain.is-positive {
+  color: var(--codewars-honor-gain);
+  font-weight: 600;
+}
+
+.codewars-clan-row-failed td {
+  opacity: 0.55;
+}
+
+.codewars-clan-row-new td {
+  color: var(--grey-color);
+}
+
+.codewars-clan-board-panel {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.codewars-clan-board {
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- Language Chip --- */
+.codewars-language-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--muted-surface);
+  color: var(--grey-color-dark);
+  font-size: 0.74rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* --- Codewars Kata Row --- */
+.codewars-kata-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 10px;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.codewars-kata-row:last-of-type {
+  border-bottom: none;
+}
+
+.codewars-kata-name {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.codewars-kata-name:hover {
+  color: var(--codewars-accent);
+  text-decoration: underline;
+}
+
+.codewars-kata-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.codewars-kata-date {
+  color: var(--grey-color);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.codewars-month-heading {
+  margin: 14px 0 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--grey-color-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.codewars-month-heading:first-child {
+  margin-top: 0;
+}
+
+.codewars-empty {
+  color: var(--grey-color);
+  font-size: 0.88rem;
+  padding: 12px 0;
+}
+
+/* --- Daily Activity Panel --- */
+.codewars-activity-summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+.codewars-activity-summary h4 {
+  display: inline;
+  margin: 0;
+}
+
+.codewars-activity-content {
+  margin-top: 12px;
+}
+
+/* --- Codewars Clan Activity Footer --- */
+.codewars-clan-activity-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.codewars-clan-activity-footer[hidden] {
+  display: none;
+}
+
+.codewars-clan-activity-progress {
+  color: var(--grey-color);
+  font-size: 0.84rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.codewars-clan-load-more,
+.codewars-load-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  margin: 0;
+}
+
+.codewars-clan-load-more:hover,
+.codewars-load-more:hover {
+  border-color: var(--codewars-accent);
+  background: var(--muted-surface);
+}
+
+.codewars-clan-load-more[hidden] {
+  display: none;
+}
+
+/* --- Codewars Clan Kata Row --- */
+.codewars-clan-kata-row {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.codewars-clan-event-who {
+  font-weight: 600;
+  color: var(--codewars-accent);
+  white-space: nowrap;
+}
+
+.codewars-clan-event-level {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--grey-color-dark);
+  font-size: 0.78rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* --- Kata Info Panel (on-demand) --- */
+.codewars-kata-info-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--card-bg);
+  color: var(--grey-color-dark);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.codewars-kata-info-button:hover {
+  border-color: var(--codewars-accent);
+  color: var(--codewars-accent);
+}
+
+.codewars-kata-info-button:disabled {
+  cursor: default;
+}
+
+.codewars-kata-info-button.is-loading {
+  animation: codewars-info-pulse 0.9s ease-in-out infinite;
+}
+
+.codewars-kata-info-button[aria-expanded="true"] {
+  border-color: var(--codewars-accent);
+  background: var(--codewars-accent-soft);
+  color: var(--codewars-accent);
+}
+
+@keyframes codewars-info-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.codewars-kata-info {
+  display: grid;
+  gap: 8px;
+  margin: 2px 0 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--codewars-accent);
+  border-radius: 8px;
+  background: var(--card-bg);
+  font-size: 0.84rem;
+  color: var(--grey-color-dark);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.codewars-kata-info-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+
+.codewars-kata-info-rank {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--codewars-accent-soft);
+  color: var(--text-color);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.codewars-kata-info-fact {
+  white-space: nowrap;
+}
+
+.codewars-kata-info-author {
+  color: var(--grey-color-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.codewars-kata-info-author:hover {
+  color: var(--codewars-accent);
+  text-decoration: underline;
+}
+
+.codewars-kata-info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.codewars-kata-info-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--grey-color);
+  font-size: 0.74rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ===================================================================
+   Yandex Contest Section Styles
+   =================================================================== */
+
+.yandex-contest {
+  margin-top: 30px;
+}
+
+.yandex-contest-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.yandex-contest-original {
+  color: var(--grey-color);
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.yandex-contest-original:hover {
+  color: var(--codewars-accent);
+  text-decoration: underline;
+}
+
+.yandex-contest-refresh-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  min-width: 0;
+}
+
+.yandex-contest-refresh-bar .codewars-muted {
+  white-space: normal;
+}
+
+.yandex-contest-panel {
+  min-width: 0;
+}
+
+.yandex-contest-status {
+  margin: 0 0 12px;
+  font-size: 0.88rem;
+}
+
+.yandex-contest-board {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.yandex-contest-table {
+  margin-bottom: 0;
+}
+
+.yandex-contest-table th.yandex-contest-number,
+.yandex-contest-table td.yandex-contest-number {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.yandex-contest-table .yandex-contest-name {
+  min-width: 130px;
+  max-width: 230px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.yandex-contest-table .yandex-contest-total {
+  font-weight: 600;
+}
+
+.yandex-contest-table .yandex-contest-missing {
+  color: var(--grey-color);
+}
+
+.yandex-contest-footnote {
+  margin: 10px 0 0;
+}
+
+.yandex-contest-scroll-hint {
+  display: none;
+}
+
+@media screen and (max-width: 720px) {
+  .yandex-contest-refresh-bar {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .yandex-contest-scroll-hint {
+    display: inline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yandex-contest .codewars-refresh.is-refreshing svg {
+    animation: none;
+  }
+}
+
+/* --- Codewars Bar Chart (Member page) --- */
+.codewars-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.codewars-bar-label {
+  min-width: 80px;
+  font-size: 0.82rem;
+  color: var(--grey-color-dark);
+  text-align: right;
+}
+
+.codewars-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--code-bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.codewars-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--border-color);
+  transition: width 0.4s ease;
+}
+
+.codewars-bar-fill--accent {
+  background: var(--codewars-accent);
+}
+
+.codewars-bar-value {
+  min-width: 40px;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--grey-color);
+}
+
+/* --- Codewars Member Page --- */
+.codewars-member-back {
+  color: var(--grey-color);
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.codewars-member-back:hover {
+  color: var(--codewars-accent);
+  text-decoration: none;
+}
+
+.codewars-member-panel {
+  margin: 24px 0;
+}
+
+.codewars-member-history {
+  margin: 28px 0;
+}
+
+.codewars-member-habits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 28px;
+  align-items: start;
+}
+
+@media screen and (max-width: 720px) {
+  .codewars-member-habits {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- Codewars Heatmap --- */
+.codewars-heatmap-summary {
+  margin: -2px 0 10px;
+  color: var(--grey-color);
+  font-size: 0.86rem;
+}
+
+.codewars-heatmap-scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.codewars-heatmap-inner {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.codewars-heatmap-weekdays {
+  display: grid;
+  grid-template-rows: repeat(7, var(--codewars-hm-cell));
+  gap: 2px;
+  padding-top: 16px;
+  color: var(--grey-color);
+  font-size: 9px;
+  line-height: var(--codewars-hm-cell);
+}
+
+.codewars-heatmap-main {
+  display: grid;
+  gap: 2px;
+}
+
+.codewars-heatmap-months {
+  display: grid;
+  grid-auto-rows: 14px;
+  gap: 2px;
+  color: var(--grey-color);
+  font-size: 9px;
+}
+
+.codewars-heatmap-months span {
+  grid-row: 1;
+  white-space: nowrap;
+}
+
+.codewars-heatmap-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, var(--codewars-hm-cell));
+  grid-auto-columns: var(--codewars-hm-cell);
+  gap: 2px;
+}
+
+.codewars-heatmap-cell {
+  width: var(--codewars-hm-cell);
+  height: var(--codewars-hm-cell);
+  border-radius: 2px;
+  background: var(--code-bg);
+}
+
+.codewars-heatmap-cell[data-level="1"] {
+  background: var(--codewars-heat-1);
+}
+
+.codewars-heatmap-cell[data-level="2"] {
+  background: var(--codewars-heat-2);
+}
+
+.codewars-heatmap-cell[data-level="3"] {
+  background: var(--codewars-heat-3);
+}
+
+.codewars-heatmap-cell[data-level="4"] {
+  background: var(--codewars-heat-4);
+}
+
+.codewars-heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  margin-top: 8px;
+  color: var(--grey-color);
+  font-size: 0.78rem;
+}
+
+.codewars-heatmap-legend span:first-child {
+  margin-right: 3px;
+}
+
+.codewars-heatmap-legend span:last-child {
+  margin-left: 3px;
+}
+
+/* --- Line Chart (Member page) --- */
+.codewars-line-wrap {
+  position: relative;
+}
+
+.codewars-line-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.codewars-line-grid,
+.codewars-line-cursor {
+  stroke: var(--border-color);
+  stroke-width: 1;
+}
+
+.codewars-line-tick {
+  fill: var(--grey-color);
+  font-size: 10px;
+}
+
+.codewars-line-area {
+  fill: var(--codewars-accent);
+  opacity: 0.1;
+}
+
+.codewars-line-path {
+  fill: none;
+  stroke: var(--codewars-accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.codewars-line-dot {
+  fill: var(--codewars-accent);
+  stroke: var(--card-bg);
+  stroke-width: 2;
+}
+
+.codewars-chart-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  color: var(--text-color);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+}
+
+.codewars-chart-tip[hidden] {
+  display: none;
+}
+
+/* --- Codewars Badge --- */
+.codewars-badge-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* --- Pagination --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination .page-number,
+.pagination .previous,
+.pagination .next {
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.pagination .page-number.current,
+.pagination .previous.current,
+.pagination .next.current {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border-color: var(--text-color);
+}
+
+.pagination .page-number.disabled,
+.pagination .previous.disabled,
+.pagination .next.disabled {
+  color: var(--grey-color);
+  pointer-events: none;
+  border-color: var(--grey-color-light);
+}
+
+.pagination .page-number:hover:not(.disabled):not(.current),
+.pagination .previous:hover:not(.disabled):not(.current),
+.pagination .next:hover:not(.disabled):not(.current) {
+  background-color: var(--grey-color-light);
+}
+
+/* --- 404 / Not Found --- */
+.not-found-container {
+  margin: 10px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.not-found-title {
+  margin: 30px 0;
+  font-size: 4em;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.easter-egg {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.easter-egg:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+#easterEggGif {
+  margin-top: 1em;
+  display: none;
+}
+
+/* --- Responsive (Clan panels) --- */
+@media screen and (max-width: 720px) {
+  .codewars-clan-panels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .codewars-clan-kata-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .codewars-clan-event-who {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
