@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You, Professor — Teacher's Day | Doniyorbek Xasanov</title>
+  <meta name="description" content="A personal and interactive tribute to Professor Sukhrob Yangibaev — who taught me programming from zero and changed the way I think. Happy Teacher's Day!">
+  <link rel="canonical" href="https://doniyorbek.uz/yangibaev/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thank You, Professor — Teacher's Day Tribute">
+  <meta property="og:description" content="A personal tribute to the professor who taught me programming from zero and continues to guide me toward ICPC.">
+  <meta property="og:url" content="https://doniyorbek.uz/yangibaev/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://doniyorbek.uz/yangibaev/prof_img.jpeg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Algorithm Canvas -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Confetti Celebration Canvas -->
+  <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-glow" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <span class="hero-label">Teacher's Day — 2026</span>
+        <h1 class="hero-heading">
+          To the Teacher<br>Who Taught Me<br>How to <em>Think.</em>
+        </h1>
+        <p class="hero-subtext">
+          Some teachers teach subjects. The truly great ones teach students how to approach the world.
+        </p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-photo-wrapper">
+          <div class="hero-photo-glow" aria-hidden="true"></div>
+          <div class="hero-photo-frame" id="hero-frame">
+            <img src="prof_img.jpeg" alt="Professor Yangibaev" class="hero-photo">
+            <!-- Interactive Floating Badges -->
+            <button type="button" class="photo-badge badge-top-left" data-badge-sound="ac" title="Click to pay respect!">
+              <span class="badge-icon">⚡</span>
+              <span class="badge-text">ICPC Mentor</span>
+            </button>
+            <button type="button" class="photo-badge badge-top-right" data-badge-sound="tree" title="Click to pay respect!">
+              <span class="badge-icon">🌲</span>
+              <span class="badge-text">ML Researcher</span>
+            </button>
+            <button type="button" class="photo-badge badge-bottom-left" data-badge-sound="coffee" title="Click to send virtual coffee!">
+              <span class="badge-icon">☕</span>
+              <span class="badge-text">Patience: ∞</span>
+            </button>
+            <button type="button" class="photo-badge badge-bottom-right" data-badge-sound="cheer" title="Status: Accepted!">
+              <span class="badge-icon">🟢</span>
+              <span class="badge-text">AC (0.00ms)</span>
+            </button>
+          </div>
+          <!-- Decorative code elements -->
+          <div class="hero-code-deco deco-1" aria-hidden="true">
+            <span class="code-line"><span class="code-kw">def</span> <span class="code-fn">teach</span>(student):</span>
+            <span class="code-line">&nbsp;&nbsp;<span class="code-kw">return</span> student.think()</span>
+          </div>
+          <div class="hero-code-deco deco-2" aria-hidden="true">
+            <span class="code-line"><span class="code-cm">// patience > perfection</span></span>
+          </div>
+          <div class="hero-code-deco deco-3" aria-hidden="true">
+            <span class="code-line">&lt;<span class="code-fn">inspire</span> /&gt;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ PERSONAL MESSAGE ============ -->
+  <section id="message" class="section message-section">
+    <div class="section-inner">
+      <span class="section-label">A Personal Note</span>
+      <h2 class="section-title">Where It All Started</h2>
+      <div class="message-content">
+        <p>There was a time when I didn't know what a variable was. I had no idea how a loop worked, and the thought of solving problems with code felt impossible. Programming wasn't just difficult — it was a complete unknown.</p>
+        <p>Then I walked into your class.</p>
+        <p>You didn't rush. You didn't assume I already knew things. You started from the very beginning, patiently explaining concepts that probably seemed trivial to you but felt like mountains to me. You showed me that programming isn't about memorizing syntax — it's about learning how to think clearly, break down problems, and build solutions piece by piece.</p>
+        <p>You gave me something more valuable than any textbook could: the confidence to try, to make mistakes, and to keep going. Because of your teaching, programming went from something I had to learn to something I genuinely enjoy.</p>
+        <p>And now, as you help me prepare for ICPC, the journey that started in your classroom continues. I'm grateful that the person who introduced me to programming is also the one helping me take the next step.</p>
+        <p class="message-closing">This page is a small way of saying thank you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE SECTION ============ -->
+  <section id="journey" class="section timeline-section">
+    <div class="section-inner">
+      <span class="section-label">The Path</span>
+      <h2 class="section-title">From Zero to the Start of a Journey</h2>
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true">
+          <div class="timeline-line-progress"></div>
+        </div>
+
+        <div class="timeline-item" data-stage="0">
+          <div class="timeline-node">
+            <span class="timeline-node-label">0</span>
+          </div>
+          <div class="timeline-card">
+            <h3>The Beginning</h3>
+            <p>I knew almost nothing about programming.</p>
+            <div class="timeline-code" aria-hidden="true">
+              <span class="code-cm">// page_one.py</span><br>
+              <span class="code-kw">print</span>(<span class="code-str">"Hello, World?"</span>)
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-stage="1">
+          <div class="timeline-node">
+            <span class="timeline-node-label">&lt;/&gt;</span>
+          </div>
+          <div class="timeline-card">
+            <h3>Fundamentals</h3>
+            <p>You gave me the foundation I needed.</p>
+            <div class="timeline-code" aria-hidden="true">
+              <span class="code-kw">for</span> concept <span class="code-kw">in</span> fundamentals:<br>
+              &nbsp;&nbsp;understand(concept)
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-stage="2">
+          <div class="timeline-node">
+            <span class="timeline-node-label">{ }</span>
+          </div>
+          <div class="timeline-card">
+            <h3>Problem Solving</h3>
+            <p>I learned that every difficult problem can be approached step by step.</p>
+            <div class="timeline-code" aria-hidden="true">
+              <span class="code-kw">while</span> not solved:<br>
+              &nbsp;&nbsp;think()<br>
+              &nbsp;&nbsp;try_again()
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-stage="3">
+          <div class="timeline-node">
+            <span class="timeline-node-label">⚡</span>
+          </div>
+          <div class="timeline-card">
+            <h3>Competitive Programming</h3>
+            <p>Programming became a challenge I wanted to solve, not just a subject I had to study.</p>
+            <div class="timeline-code" aria-hidden="true">
+              <span class="code-cm"># time_limit: 2s</span><br>
+              <span class="code-cm"># memory: 256MB</span><br>
+              solve(problem, <span class="code-kw">with</span>=passion)
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-stage="4">
+          <div class="timeline-node">
+            <span class="timeline-node-label">→</span>
+          </div>
+          <div class="timeline-card">
+            <h3>ICPC</h3>
+            <p>And now, the journey continues.</p>
+            <div class="timeline-code" aria-hidden="true">
+              <span class="code-cm">// to be continued...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LESSONS CARDS ============ -->
+  <section id="lessons" class="section lessons-section">
+    <div class="section-inner">
+      <span class="section-label">Lessons</span>
+      <h2 class="section-title">More Than Programming</h2>
+      <div class="lessons-grid">
+
+        <div class="lesson-card">
+          <div class="lesson-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a8 8 0 0 1 8 8c0 3.5-2 6-4 7.5V20a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.5C6 16 4 13.5 4 10a8 8 0 0 1 8-8z"/>
+              <line x1="10" y1="22" x2="14" y2="22"/>
+            </svg>
+          </div>
+          <h3>Think</h3>
+          <p>You taught me to think before I code.</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="8" height="8" rx="1"/>
+              <rect x="14" y="2" width="8" height="8" rx="1"/>
+              <rect x="8" y="14" width="8" height="8" rx="1"/>
+              <line x1="6" y1="10" x2="6" y2="14"/>
+              <line x1="18" y1="10" x2="18" y2="14"/>
+            </svg>
+          </div>
+          <h3>Solve</h3>
+          <p>You taught me to break difficult problems into smaller ones.</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Persevere</h3>
+          <p>You showed me that being stuck is part of learning.</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <h3>Question</h3>
+          <p>You encouraged me to understand why, not just memorize how.</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3>Improve</h3>
+          <p>You taught me that every solution can become better.</p>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+          <h3>Keep Going</h3>
+          <p>You showed me that progress is built one problem at a time.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ICPC SECTION ============ -->
+  <section id="icpc" class="section icpc-section">
+    <div class="icpc-bg" aria-hidden="true">
+      <div class="icpc-grid-lines"></div>
+      <div class="icpc-node node-1"></div>
+      <div class="icpc-node node-2"></div>
+      <div class="icpc-node node-3"></div>
+      <div class="icpc-node node-4"></div>
+      <div class="icpc-node node-5"></div>
+      <div class="icpc-edge edge-1"></div>
+      <div class="icpc-edge edge-2"></div>
+      <div class="icpc-edge edge-3"></div>
+    </div>
+    <div class="section-inner icpc-inner">
+      <span class="section-label">Looking Ahead</span>
+      <h2 class="section-title">The Next Challenge: ICPC</h2>
+      <div class="icpc-transition">
+        <p class="icpc-from reveal-item">From learning the first lines of code...</p>
+        <div class="icpc-arrow" aria-hidden="true">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <polyline points="19 12 12 19 5 12"/>
+          </svg>
+        </div>
+        <p class="icpc-to reveal-item">...to preparing for ICPC.</p>
+      </div>
+      <div class="icpc-message reveal-item">
+        <p>The competition is still ahead of us, but I already know something important: having the right teacher makes the journey itself meaningful.</p>
+      </div>
+      <div class="icpc-terminal" aria-hidden="true">
+        <div class="terminal-header">
+          <span class="terminal-dot dot-red"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+          <span class="terminal-title">icpc_prep.py</span>
+        </div>
+        <div class="terminal-body">
+          <span class="code-cm"># ICPC Preparation</span><br>
+          <span class="code-kw">team</span> = Team(coach=<span class="code-str">"Professor"</span>)<br>
+          <span class="code-kw">while</span> competition.ahead():<br>
+          &nbsp;&nbsp;team.practice()<br>
+          &nbsp;&nbsp;team.learn()<br>
+          &nbsp;&nbsp;team.grow()<br>
+          <span class="code-cm"># Ready.</span>
+        </div>
+      </div>
+
+      <!-- ============ PROFESSOR'S WISDOM & DEBUGGING HOTLINE ============ -->
+      <div class="wisdom-console reveal-item" id="wisdom-console">
+        <div class="wisdom-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+          </div>
+          <span class="wisdom-title">⚡ professor_wisdom_hotline.sh --live</span>
+          <span class="wisdom-status"><span class="pulse-dot"></span> Mentor Online</span>
+        </div>
+        <div class="wisdom-body">
+          <div class="wisdom-prompt-line">
+            <span class="wisdom-prompt">student@icpc:~$</span>
+            <span class="wisdom-cmd">./ask_professor.sh --topic="algorithmic_enlightenment"</span>
+          </div>
+          <div class="wisdom-output" id="wisdom-output">
+            "Before you write 100 lines of code, pause for 10 minutes. If that still doesn't work, have a cup of green tea. The best debugging tool is a calm mind."
+          </div>
+          <div class="wisdom-actions">
+            <button type="button" class="interactive-btn btn-secondary" id="btn-wisdom">
+              <span class="btn-icon">💡</span>
+              <span>Ask Professor for Advice</span>
+            </button>
+            <button type="button" class="interactive-btn btn-primary" id="btn-submit-code">
+              <span class="btn-icon">🚀</span>
+              <span>Submit Code to Judge</span>
+            </button>
+          </div>
+          <div class="wisdom-verdict-box" id="wisdom-verdict" style="display: none;">
+            <div class="verdict-spinner" id="verdict-spinner"></div>
+            <span class="verdict-text" id="verdict-text">Running test case 1/42...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCOPUS / RESEARCH SECTION ============ -->
+  <section id="research" class="section research-section">
+    <div class="section-inner">
+      <span class="section-label">Discovery</span>
+      <h2 class="section-title">Beyond the Classroom</h2>
+
+      <!-- Personal story about finding Scopus -->
+      <div class="research-story reveal-item">
+        <div class="research-story-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <p>When I first discovered <strong>Scopus</strong> — one of the world's largest databases of peer-reviewed research — the very first person I searched for was you.</p>
+        <p>Honestly, I still don't fully understand what all these documents are, what exactly each metric means, or how much work went into every single publication. 😄</p>
+        <p>But I <em>do</em> know one thing: having your name indexed in an international research database like Scopus is something not easy to achieve. And knowing that my programming teacher is also a published researcher makes me respect you even more.</p>
+      </div>
+
+      <!-- Scopus profile card -->
+      <div class="scopus-profile reveal-item">
+        <div class="scopus-header">
+          <div class="scopus-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+            <span>Scopus Author Profile</span>
+          </div>
+          <a href="https://www.scopus.com/authid/detail.uri?authorId=60069055200" target="_blank" rel="noopener noreferrer" class="scopus-link">
+            View on Scopus
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="scopus-author-info">
+          <div class="scopus-author-name">Sukhrob Yangibaev</div>
+          <div class="scopus-author-affiliation">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Al-Khwarizmi University, Urgench — Department of Artificial Intelligence
+          </div>
+          <div class="scopus-author-id">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Author ID: 60069055200
+          </div>
+        </div>
+
+        <!-- Research areas -->
+        <div class="scopus-fields">
+          <span class="scopus-field-tag">Machine Learning</span>
+          <span class="scopus-field-tag">Artificial Intelligence</span>
+          <span class="scopus-field-tag">Decision Trees</span>
+          <span class="scopus-field-tag">Esports Analytics</span>
+          <span class="scopus-field-tag">Computer Science</span>
+        </div>
+      </div>
+
+      <!-- Publications -->
+      <h3 class="research-subtitle reveal-item">Published Research</h3>
+      <div class="publications-list">
+
+        <div class="publication-card reveal-item">
+          <div class="pub-type-badge">Journal Article</div>
+          <h4 class="pub-title">DotA 2 Match Outcome Prediction System Using Decision Tree Ensemble Algorithms</h4>
+          <div class="pub-meta">
+            <span class="pub-journal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+              Big Data and Cognitive Computing, 2025
+            </span>
+          </div>
+          <p class="pub-description">Explores replication of prediction systems using Extra Trees, Random Forest, and Hist Gradient Boosting classifiers with OpenDota API data.</p>
+          <div class="pub-tags">
+            <span>Extra Trees</span>
+            <span>Random Forest</span>
+            <span>Gradient Boosting</span>
+            <span>OpenDota API</span>
+          </div>
+        </div>
+
+        <div class="publication-card reveal-item">
+          <div class="pub-type-badge pub-conference">Conference Paper</div>
+          <h4 class="pub-title">Comparative Analysis of Decision Tree Algorithms for DotA 2 Match Outcome Prediction</h4>
+          <div class="pub-meta">
+            <span class="pub-journal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              IEEE 26th International Conference of Young Professionals in Electron Devices and Materials, 2025
+            </span>
+          </div>
+          <p class="pub-description">Compares single decision tree algorithms against ensemble methods, demonstrating superior performance of ensemble approaches.</p>
+          <div class="pub-tags">
+            <span>IEEE</span>
+            <span>Decision Trees</span>
+            <span>CART</span>
+            <span>Ensemble Methods</span>
+          </div>
+        </div>
+
+        <div class="publication-card reveal-item">
+          <div class="pub-type-badge pub-article">Research Article</div>
+          <h4 class="pub-title">Applying Decision Tree Models to Solve Real-Life Problems</h4>
+          <div class="pub-meta">
+            <span class="pub-journal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              European Science Review
+            </span>
+          </div>
+          <p class="pub-description">Investigation into CART, ID3, C4.5, and AdaBoost decision tree algorithms and their practical real-world applications.</p>
+          <div class="pub-tags">
+            <span>ID3</span>
+            <span>C4.5</span>
+            <span>AdaBoost</span>
+            <span>Real-world Applications</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Closing personal note -->
+      <div class="research-closing reveal-item">
+        <p>I may not fully understand every paper yet — but seeing your name in Scopus reminded me that the person teaching me fundamentals in the classroom is also pushing the boundaries of knowledge far beyond it.</p>
+        <p class="research-closing-emoji">That's pretty cool, Professor. 😊</p>
+      </div>
+
+      <!-- ============ INTERACTIVE ML SIMULATOR ============ -->
+      <div class="ml-simulator-wrapper reveal-item" id="ml-simulator">
+        <div class="ml-simulator-card">
+          <div class="ml-card-header">
+            <div class="ml-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+              <span>Interactive Decision Tree Engine</span>
+            </div>
+            <span class="ml-version-tag">Yangibaev Ensemble v2.0</span>
+          </div>
+          <div class="ml-card-intro">
+            <h3>DotA 2 & ICPC Match Outcome Predictor</h3>
+            <p>Directly inspired by Professor Yangibaev's research papers on <em>Decision Tree Ensemble Algorithms</em>. Configure your parameters below and let the model compute your probability of triumph!</p>
+          </div>
+
+          <div class="ml-controls-grid">
+            <div class="ml-control-group">
+              <label for="ml-scenario">Target Scenario:</label>
+              <select id="ml-scenario" class="ml-select">
+                <option value="dota">🎮 DotA 2 Ranked Match (Radiant vs Dire)</option>
+                <option value="icpc">⚡ ICPC Regional Finals (Final 15 Minutes)</option>
+                <option value="exam">🌙 3 AM Debugging (Segmentation Fault)</option>
+                <option value="life">🌱 Future Career in Computer Science</option>
+              </select>
+            </div>
+
+            <div class="ml-control-group">
+              <label for="ml-model">Ensemble Classifier:</label>
+              <select id="ml-model" class="ml-select">
+                <option value="extratrees">🌲 Extra Trees Ensemble (Big Data 2025)</option>
+                <option value="gradient">🚀 Hist Gradient Boosting (IEEE 2025)</option>
+                <option value="wisdom">🧠 Yangibaev Pure Wisdom Model (Infinite Depth)</option>
+              </select>
+            </div>
+
+            <div class="ml-control-group">
+              <label for="ml-feature">Key Secret Feature:</label>
+              <select id="ml-feature" class="ml-select">
+                <option value="guidance">✨ Guided by Professor Yangibaev (+∞ Confidence)</option>
+                <option value="coffee">☕ 5 Cups of Espresso (+200 APM)</option>
+                <option value="print">🔍 Print Statement at Every Single Line</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ml-action-row">
+            <button type="button" class="interactive-btn btn-primary btn-glow" id="btn-run-ml">
+              <span class="btn-icon">⚡</span>
+              <span>Execute Ensemble Model</span>
+            </button>
+          </div>
+
+          <!-- Tree animation & outcome display -->
+          <div class="ml-outcome-area" id="ml-outcome-area">
+            <div class="ml-tree-vis" id="ml-tree-vis">
+              <div class="tree-step" id="tree-step-1">
+                <span class="step-num">Node 0</span>
+                <span class="step-desc">Splitting feature: [Mentorship == Professor Yangibaev]</span>
+                <span class="step-val status-pass">TRUE ➔ Branch Left</span>
+              </div>
+              <div class="tree-step" id="tree-step-2">
+                <span class="step-num">Node 1</span>
+                <span class="step-desc">Evaluating Gini Impurity & Entropy...</span>
+                <span class="step-val status-pass">Impurity: 0.000 (Pure Wisdom)</span>
+              </div>
+              <div class="tree-step" id="tree-step-3">
+                <span class="step-num">Ensemble</span>
+                <span class="step-desc">Aggregating 500 Decision Trees voting simultaneously...</span>
+                <span class="step-val status-pass">Unanimous Consensus!</span>
+              </div>
+            </div>
+
+            <div class="ml-result-card" id="ml-result-card">
+              <div class="ml-result-badge">
+                <span class="result-icon">🏆</span>
+                <span class="result-title" id="ml-result-title">100.0% VICTORY / ACCEPTED (AC)!</span>
+              </div>
+              <p class="ml-result-desc" id="ml-result-desc">
+                The ensemble classifier predicts guaranteed success. Feature importance analysis proves that having Professor Yangibaev as your teacher accounts for 99.9% of the variance in success!
+              </p>
+              <div class="ml-metrics-row">
+                <div class="metric-pill"><span>Accuracy:</span> <strong>99.99%</strong></div>
+                <div class="metric-pill"><span>Log Loss:</span> <strong>0.0000</strong></div>
+                <div class="metric-pill"><span>Patience Factor:</span> <strong>∞</strong></div>
+                <div class="metric-pill"><span>Verdict:</span> <strong style="color: #22c55e;">VICTORY 🟢</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRIBUTE PHOTO SECTION ============ -->
+  <section id="tribute" class="section tribute-section">
+    <div class="section-inner">
+      <span class="section-label">Gratitude</span>
+      <h2 class="section-title">The Person Behind the Lessons</h2>
+      <div class="tribute-photo-container">
+        <div class="tribute-photo-glow" aria-hidden="true"></div>
+        <div class="tribute-photo-frame">
+          <img src="prof_img.jpeg" alt="Professor Yangibaev" class="tribute-photo">
+        </div>
+      </div>
+      <p class="tribute-main-text">Thank you for being one of the people who made programming meaningful to me.</p>
+      <div class="tribute-thanks">
+        <p class="tribute-line reveal-item">Thank you for your patience.</p>
+        <p class="tribute-line reveal-item">Thank you for your time.</p>
+        <p class="tribute-line reveal-item">Thank you for believing in your students.</p>
+        <p class="tribute-line reveal-item">And thank you for continuing to teach me.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPRECIATION SECTION ============ -->
+  <section id="appreciation" class="section appreciation-section">
+    <div class="section-inner">
+      <blockquote class="appreciation-quote">
+        <p>A teacher leaves a mark long after the lesson ends.</p>
+      </blockquote>
+      <div class="appreciation-message">
+        <p class="reveal-item">Years from now, I may forget individual problems, algorithms, or pieces of code.</p>
+        <p class="reveal-item">But I will remember the teacher who taught me how to approach them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL GREETING ============ -->
+  <section id="final" class="section final-section">
+    <div class="final-glow" aria-hidden="true"></div>
+    <div class="section-inner final-inner">
+      <h2 class="final-heading">
+        Happy Teacher's Day,<br>
+        <span class="final-highlight">Professor!</span>
+      </h2>
+      <p class="final-message">Thank you for being part of my journey — from the very first line of code to wherever it takes me next.</p>
+      
+      <!-- Interactive Celebration Hub -->
+      <div class="celebration-hub reveal-item">
+        <h3 class="celebration-title">🎉 Send Teacher's Day Wishes!</h3>
+        <p class="celebration-desc">Click below to shower this page with confetti, send virtual espresso, or raise the Professor's Respect Meter!</p>
+        <div class="celebration-buttons">
+          <button type="button" class="interactive-btn btn-primary btn-large btn-glow" id="btn-grand-celebrate">
+            <span class="btn-icon">🎉</span>
+            <span>Launch Confetti Celebration!</span>
+          </button>
+          <button type="button" class="interactive-btn btn-secondary btn-large" id="btn-send-coffee">
+            <span class="btn-icon">☕</span>
+            <span>Offer Virtual Espresso</span>
+          </button>
+          <button type="button" class="interactive-btn btn-secondary btn-large" id="btn-pay-respect">
+            <span class="btn-icon">🎓</span>
+            <span>+1000 Aura Respect</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="final-signature">
+        <span class="final-dash">—</span>
+        <span class="final-from">Your grateful student</span>
+      </div>
+      <div class="final-decoration" aria-hidden="true">
+        <span class="code-cm">// end of file</span><br>
+        <span class="code-cm">// but not the end of the story.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Bottom Respect & Quick Action Widget -->
+  <aside class="floating-respect-widget" id="floating-widget" aria-label="Celebration controls">
+    <div class="floating-widget-content">
+      <button type="button" class="floating-respect-btn" id="floating-respect-btn" title="Click to pay respect to Professor!">
+        <span class="floating-icon">🎓</span>
+        <span class="floating-text">Respect:</span>
+        <strong class="floating-num" id="floating-count">1024</strong>
+        <span class="floating-plus">+1</span>
+      </button>
+      <div class="floating-divider" aria-hidden="true"></div>
+      <button type="button" class="floating-action-icon" id="floating-confetti-btn" title="Launch Confetti!" aria-label="Launch confetti">
+        🎉
+      </button>
+      <button type="button" class="floating-action-icon" id="floating-coffee-btn" title="Send Virtual Espresso!" aria-label="Send coffee">
+        ☕
+      </button>
+      <button type="button" class="floating-action-icon" id="floating-sound-btn" title="Toggle Sound Chimes" aria-label="Toggle sound">
+        🔔
+      </button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
