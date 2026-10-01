@@ -453,41 +453,7 @@
         </div>
       </div>
 
-      <!-- ============ PROFESSOR'S WISDOM & DEBUGGING HOTLINE ============ -->
-      <div class="wisdom-console reveal-item" id="wisdom-console">
-        <div class="wisdom-header">
-          <div class="terminal-dots">
-            <span class="terminal-dot dot-red"></span>
-            <span class="terminal-dot dot-yellow"></span>
-            <span class="terminal-dot dot-green"></span>
-          </div>
-          <span class="wisdom-title">⚡ professor_wisdom_hotline.sh --live</span>
-          <span class="wisdom-status"><span class="pulse-dot"></span> Mentor Online</span>
-        </div>
-        <div class="wisdom-body">
-          <div class="wisdom-prompt-line">
-            <span class="wisdom-prompt">student@icpc:~$</span>
-            <span class="wisdom-cmd">./ask_professor.sh --topic="algorithmic_enlightenment"</span>
-          </div>
-          <div class="wisdom-output" id="wisdom-output">
-            "Before you write 100 lines of code, pause for 10 minutes. If that still doesn't work, have a cup of green tea. The best debugging tool is a calm mind."
-          </div>
-          <div class="wisdom-actions">
-            <button type="button" class="interactive-btn btn-secondary" id="btn-wisdom">
-              <span class="btn-icon">💡</span>
-              <span>Ask Professor for Advice</span>
-            </button>
-            <button type="button" class="interactive-btn btn-primary" id="btn-submit-code">
-              <span class="btn-icon">🚀</span>
-              <span>Submit Code to Judge</span>
-            </button>
-          </div>
-          <div class="wisdom-verdict-box" id="wisdom-verdict" style="display: none;">
-            <div class="verdict-spinner" id="verdict-spinner"></div>
-            <span class="verdict-text" id="verdict-text">Running test case 1/42...</span>
-          </div>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -634,100 +600,7 @@
         <p class="research-closing-emoji">That's pretty cool, Professor. 😊</p>
       </div>
 
-      <!-- ============ INTERACTIVE ML SIMULATOR ============ -->
-      <div class="ml-simulator-wrapper reveal-item" id="ml-simulator">
-        <div class="ml-simulator-card">
-          <div class="ml-card-header">
-            <div class="ml-badge">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-              </svg>
-              <span>Interactive Decision Tree Engine</span>
-            </div>
-            <span class="ml-version-tag">Yangibaev Ensemble v2.0</span>
-          </div>
-          <div class="ml-card-intro">
-            <h3>DotA 2 & ICPC Match Outcome Predictor</h3>
-            <p>Directly inspired by Professor Yangibaev's research papers on <em>Decision Tree Ensemble Algorithms</em>. Configure your parameters below and let the model compute your probability of triumph!</p>
-          </div>
 
-          <div class="ml-controls-grid">
-            <div class="ml-control-group">
-              <label for="ml-scenario">Target Scenario:</label>
-              <select id="ml-scenario" class="ml-select">
-                <option value="dota">🎮 DotA 2 Ranked Match (Radiant vs Dire)</option>
-                <option value="icpc">⚡ ICPC Regional Finals (Final 15 Minutes)</option>
-                <option value="exam">🌙 3 AM Debugging (Segmentation Fault)</option>
-                <option value="life">🌱 Future Career in Computer Science</option>
-              </select>
-            </div>
-
-            <div class="ml-control-group">
-              <label for="ml-model">Ensemble Classifier:</label>
-              <select id="ml-model" class="ml-select">
-                <option value="extratrees">🌲 Extra Trees Ensemble (Big Data 2025)</option>
-                <option value="gradient">🚀 Hist Gradient Boosting (IEEE 2025)</option>
-                <option value="wisdom">🧠 Yangibaev Pure Wisdom Model (Infinite Depth)</option>
-              </select>
-            </div>
-
-            <div class="ml-control-group">
-              <label for="ml-feature">Key Secret Feature:</label>
-              <select id="ml-feature" class="ml-select">
-                <option value="guidance">✨ Guided by Professor Yangibaev (+∞ Confidence)</option>
-                <option value="coffee">☕ 5 Cups of Espresso (+200 APM)</option>
-                <option value="print">🔍 Print Statement at Every Single Line</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="ml-action-row">
-            <button type="button" class="interactive-btn btn-primary btn-glow" id="btn-run-ml">
-              <span class="btn-icon">⚡</span>
-              <span>Execute Ensemble Model</span>
-            </button>
-          </div>
-
-          <!-- Tree animation & outcome display -->
-          <div class="ml-outcome-area" id="ml-outcome-area">
-            <div class="ml-tree-vis" id="ml-tree-vis">
-              <div class="tree-step" id="tree-step-1">
-                <span class="step-num">Node 0</span>
-                <span class="step-desc">Splitting feature: [Mentorship == Professor Yangibaev]</span>
-                <span class="step-val status-pass">TRUE ➔ Branch Left</span>
-              </div>
-              <div class="tree-step" id="tree-step-2">
-                <span class="step-num">Node 1</span>
-                <span class="step-desc">Evaluating Gini Impurity & Entropy...</span>
-                <span class="step-val status-pass">Impurity: 0.000 (Pure Wisdom)</span>
-              </div>
-              <div class="tree-step" id="tree-step-3">
-                <span class="step-num">Ensemble</span>
-                <span class="step-desc">Aggregating 500 Decision Trees voting simultaneously...</span>
-                <span class="step-val status-pass">Unanimous Consensus!</span>
-              </div>
-            </div>
-
-            <div class="ml-result-card" id="ml-result-card">
-              <div class="ml-result-badge">
-                <span class="result-icon">🏆</span>
-                <span class="result-title" id="ml-result-title">100.0% VICTORY / ACCEPTED (AC)!</span>
-              </div>
-              <p class="ml-result-desc" id="ml-result-desc">
-                The ensemble classifier predicts guaranteed success. Feature importance analysis proves that having Professor Yangibaev as your teacher accounts for 99.9% of the variance in success!
-              </p>
-              <div class="ml-metrics-row">
-                <div class="metric-pill"><span>Accuracy:</span> <strong>99.99%</strong></div>
-                <div class="metric-pill"><span>Log Loss:</span> <strong>0.0000</strong></div>
-                <div class="metric-pill"><span>Patience Factor:</span> <strong>∞</strong></div>
-                <div class="metric-pill"><span>Verdict:</span> <strong style="color: #22c55e;">VICTORY 🟢</strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -765,36 +638,9 @@
     </div>
   </section>
 
-  <!-- ============ FINAL GREETING ============ -->
-  <section id="final" class="section final-section">
-    <div class="final-glow" aria-hidden="true"></div>
+  <!-- ============ FINAL SIGNATURE ============ -->
+  <footer id="final" class="final-section">
     <div class="section-inner final-inner">
-      <h2 class="final-heading">
-        Happy Teacher's Day,<br>
-        <span class="final-highlight">Professor!</span>
-      </h2>
-      <p class="final-message">Thank you for being part of my journey — from the very first line of code to wherever it takes me next.</p>
-      
-      <!-- Interactive Celebration Hub -->
-      <div class="celebration-hub reveal-item">
-        <h3 class="celebration-title">🎉 Send Teacher's Day Wishes!</h3>
-        <p class="celebration-desc">Click below to shower this page with confetti, send virtual espresso, or raise the Professor's Respect Meter!</p>
-        <div class="celebration-buttons">
-          <button type="button" class="interactive-btn btn-primary btn-large btn-glow" id="btn-grand-celebrate">
-            <span class="btn-icon">🎉</span>
-            <span>Launch Confetti Celebration!</span>
-          </button>
-          <button type="button" class="interactive-btn btn-secondary btn-large" id="btn-send-coffee">
-            <span class="btn-icon">☕</span>
-            <span>Offer Virtual Espresso</span>
-          </button>
-          <button type="button" class="interactive-btn btn-secondary btn-large" id="btn-pay-respect">
-            <span class="btn-icon">🎓</span>
-            <span>+1000 Aura Respect</span>
-          </button>
-        </div>
-      </div>
-
       <div class="final-signature">
         <span class="final-dash">—</span>
         <span class="final-from">Your grateful student</span>
@@ -804,7 +650,7 @@
         <span class="code-cm">// but not the end of the story.</span>
       </div>
     </div>
-  </section>
+  </footer>
 
   <!-- Floating Bottom Respect & Quick Action Widget -->
   <aside class="floating-respect-widget" id="floating-widget" aria-label="Celebration controls">

@@ -1132,7 +1132,7 @@ body {
    FINAL SECTION
    ============================ */
 .final-section {
-  min-height: 100vh;
+  padding: 5rem 1.5rem 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
