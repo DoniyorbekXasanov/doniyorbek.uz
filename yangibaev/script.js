@@ -854,5 +854,209 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ============================================================
+  // 11. COMEDY SCENE: "A VERY IMPORTANT PROGRAMMING SKILL"
+  // ============================================================
+  const comedyScene = document.getElementById('comedy-scene');
+  const dialogueStream = document.getElementById('dialogue-stream');
+  const typoWord = document.getElementById('typo-word');
+  const typoHighlightRow = document.getElementById('typo-highlight-row');
+  const comedyConsole = document.getElementById('comedy-console');
+  const comedicReveal = document.getElementById('comedic-reveal');
+  const terminalStepBadge = document.getElementById('terminal-step-badge');
+  const comedyProgressBar = document.getElementById('comedy-progress-bar');
+  const btnReplayDebug = document.getElementById('btn-replay-debug');
+  const btnAskProf = document.getElementById('btn-ask-prof');
+  const profChatDrawer = document.getElementById('prof-chat-drawer');
+  const chatMessages = document.getElementById('chat-messages');
+  const secretPromptBtn = document.getElementById('secret-prompt-btn');
+  const easterEggBox = document.getElementById('easter-egg-box');
+  const easterResponse = document.getElementById('easter-response');
+
+  let comedyTimers = [];
+  let comedyHasAutoPlayed = false;
+  let easterClickCount = 0;
+
+  function clearComedyTimers() {
+    comedyTimers.forEach(id => clearTimeout(id));
+    comedyTimers = [];
+  }
+
+  function appendDialogueMsg(speaker, text, isProf = false) {
+    if (!dialogueStream) return;
+    const msg = document.createElement('div');
+    msg.className = `dialogue-msg ${isProf ? 'msg-prof' : 'msg-student'}`;
+    msg.innerHTML = `
+      <span class="speaker-label ${isProf ? 'label-prof' : 'label-student'}">${speaker}:</span>
+      <span class="speaker-text">${text}</span>
+    `;
+    dialogueStream.appendChild(msg);
+  }
+
+  function startComedyAnimation() {
+    if (!comedyScene) return;
+    clearComedyTimers();
+
+    // Reset visual state
+    if (dialogueStream) dialogueStream.innerHTML = '';
+    if (typoWord) typoWord.classList.remove('typo-active');
+    if (typoHighlightRow) typoHighlightRow.style.display = 'none';
+    if (comedyConsole) comedyConsole.style.display = 'none';
+    if (comedicReveal) comedicReveal.style.display = 'none';
+    if (profChatDrawer) profChatDrawer.style.display = 'none';
+    if (easterEggBox) easterEggBox.style.display = 'none';
+
+    if (terminalStepBadge) {
+      terminalStepBadge.textContent = 'Student Mode: Panicking';
+      terminalStepBadge.classList.remove('status-solved');
+    }
+
+    if (comedyProgressBar) {
+      comedyProgressBar.style.transition = 'none';
+      comedyProgressBar.style.width = '0%';
+      setTimeout(() => {
+        comedyProgressBar.style.transition = 'width 11s linear';
+        comedyProgressBar.style.width = '100%';
+      }, 50);
+    }
+
+    // Step 1: Student reaches out (t = 600ms)
+    comedyTimers.push(setTimeout(() => {
+      appendDialogueMsg('Student', 'Professor, something is wrong with my code 😭', false);
+      playTone(400, 'sine', 0.12, 0.05);
+    }, 600));
+
+    // Step 2: Professor responds calmly (t = 2200ms)
+    comedyTimers.push(setTimeout(() => {
+      appendDialogueMsg('Professor', 'What seems to be the problem?', true);
+      playTone(550, 'triangle', 0.15, 0.06);
+    }, 2200));
+
+    // Step 3: Classic student response (t = 3800ms)
+    comedyTimers.push(setTimeout(() => {
+      appendDialogueMsg('Student', "I don't know. It just doesn't work.", false);
+      playTone(420, 'sine', 0.12, 0.05);
+    }, 3800));
+
+    // Step 4: Python execution & realistic NameError (t = 5200ms)
+    comedyTimers.push(setTimeout(() => {
+      if (comedyConsole) {
+        comedyConsole.style.display = 'block';
+        comedyConsole.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      if (terminalStepBadge) {
+        terminalStepBadge.textContent = 'Status: NameError 💥';
+      }
+      playTone(280, 'sawtooth', 0.25, 0.07);
+    }, 5200));
+
+    // Step 5: Highlight typo 'pritn' with glowing wavy underline & pointer (t = 7000ms)
+    comedyTimers.push(setTimeout(() => {
+      if (typoWord) typoWord.classList.add('typo-active');
+      if (typoHighlightRow) typoHighlightRow.style.display = 'flex';
+      playTone(600, 'sine', 0.1, 0.05);
+    }, 7000));
+
+    // Step 6: Professor points out the obvious (t = 8200ms)
+    comedyTimers.push(setTimeout(() => {
+      appendDialogueMsg('Professor', '...print', true);
+      playTone(659.25, 'triangle', 0.18, 0.07);
+    }, 8200));
+
+    // Step 7: Student realizes (t = 9400ms)
+    comedyTimers.push(setTimeout(() => {
+      appendDialogueMsg('Student', 'Oh.', false);
+      playTone(520, 'sine', 0.12, 0.05);
+    }, 9400));
+
+    // Step 8: Student full realization (t = 10300ms)
+    comedyTimers.push(setTimeout(() => {
+      appendDialogueMsg('Student', 'Ohhhhh.', false);
+      playTone(480, 'sine', 0.15, 0.05);
+    }, 10300));
+
+    // Step 9: Comedic Reveal Punchline (t = 11200ms)
+    comedyTimers.push(setTimeout(() => {
+      if (comedicReveal) {
+        comedicReveal.style.display = 'block';
+      }
+      if (terminalStepBadge) {
+        terminalStepBadge.textContent = 'Status: Problem Solved ✅';
+        terminalStepBadge.classList.add('status-solved');
+      }
+      playChime('respect');
+      launchConfetti(window.innerWidth / 2, window.innerHeight * 0.45, 45);
+    }, 11200));
+  }
+
+  // IntersectionObserver for auto-play on scroll
+  if (comedyScene) {
+    const comedyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !comedyHasAutoPlayed) {
+          comedyHasAutoPlayed = true;
+          startComedyAnimation();
+        }
+      });
+    }, { threshold: 0.25 });
+
+    comedyObserver.observe(comedyScene);
+  }
+
+  // "Debug it again" replay button
+  if (btnReplayDebug) {
+    btnReplayDebug.addEventListener('click', () => {
+      playTone(700, 'sine', 0.1, 0.06);
+      startComedyAnimation();
+    });
+  }
+
+  // "Ask the Professor" interactive drawer
+  if (btnAskProf && profChatDrawer && chatMessages) {
+    btnAskProf.addEventListener('click', () => {
+      profChatDrawer.style.display = 'block';
+      chatMessages.innerHTML = '';
+      playChime('tree');
+
+      const chatSteps = [
+        { html: '<div class="chat-system-note">🔔 <em>Professor has entered the chat.</em></div>', delay: 200 },
+        { html: '<div class="dialogue-msg msg-prof"><span class="speaker-label label-prof">Professor:</span> <span class="speaker-text">"Have you checked the spelling?"</span></div>', delay: 1000 },
+        { html: '<div class="dialogue-msg msg-student"><span class="speaker-label label-student">Student:</span> <span class="speaker-text">"..."</span></div>', delay: 2100 },
+        { html: '<div class="dialogue-msg msg-prof"><span class="speaker-label label-prof">Professor:</span> <span class="speaker-text">"🙂"</span></div>', delay: 3000 },
+        { html: '<div class="chat-system-punchline">✨ <strong>Every programmer has been here.</strong></div>', delay: 3800 }
+      ];
+
+      chatSteps.forEach(step => {
+        setTimeout(() => {
+          chatMessages.insertAdjacentHTML('beforeend', step.html);
+          playTone(600, 'sine', 0.08, 0.04);
+        }, step.delay);
+      });
+    });
+  }
+
+  // Hidden Easter Egg: Click the prompt icon 3 times
+  if (secretPromptBtn && easterEggBox && easterResponse) {
+    secretPromptBtn.addEventListener('click', () => {
+      easterClickCount++;
+      playTone(500 + easterClickCount * 120, 'triangle', 0.1, 0.06);
+
+      if (easterClickCount >= 3) {
+        easterEggBox.style.display = 'block';
+        easterResponse.innerHTML = `
+          <div><em>Professor has been summoned...</em></div>
+          <div style="color: #4ade80; margin-top: 6px;">✅ Problem solved.</div>
+          <div style="color: #f87171;">❌ Student still doesn't know what was wrong.</div>
+        `;
+        playChime('celebrate');
+        launchConfetti(window.innerWidth / 2, window.innerHeight * 0.45, 60);
+        showToast("Secret shortcut unlocked: Professor summoned! 🪄", '⚡');
+        easterClickCount = 0;
+      } else {
+        showToast(`Secret shortcut: ${3 - easterClickCount} more clicks...`, '⚡');
+      }
+    });
+  }
+
 });
 

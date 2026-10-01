@@ -272,6 +272,139 @@
     </div>
   </section>
 
+  <!-- ============ A VERY IMPORTANT PROGRAMMING SKILL ============ -->
+  <section id="debugging-skill" class="section debugging-section">
+    <div class="section-inner">
+      <span class="section-label">A Very Important Programming Skill</span>
+      <h2 class="section-title">Knowing When to Ask Your Professor.</h2>
+      <p class="section-subtitle-text reveal-item">
+        Every student eventually learns algorithms, data structures, and complex logic. But the most universally relatable programming skill of all happens long before that...
+      </p>
+
+      <!-- Comedy Scene Terminal Card -->
+      <div class="comedy-card reveal-item" id="comedy-scene">
+        
+        <!-- Editor Header -->
+        <div class="comedy-terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+          </div>
+          <div class="terminal-tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span class="tab-filename">first_program.py</span>
+            <span class="easter-trigger" id="secret-prompt-btn" title="Secret terminal shortcut" aria-label="Secret trigger">⚡</span>
+          </div>
+          <div class="terminal-status-badge" id="terminal-step-badge">Student Mode: Panicking</div>
+        </div>
+
+        <!-- Editor Body -->
+        <div class="comedy-editor-body">
+          
+          <!-- Code line with subtle typo -->
+          <div class="code-editor-line" id="code-editor-line">
+            <span class="line-num">1</span>
+            <span class="code-text" id="code-content">
+              <span class="code-token token-fn" id="typo-word">pritn</span><span class="code-token token-paren">(</span><span class="code-token token-str">"Hello World"</span><span class="code-token token-paren">)</span>
+            </span>
+            <span class="cursor-blink" id="editor-cursor"></span>
+          </div>
+
+          <!-- Highlight underline for typo -->
+          <div class="typo-highlight-row" id="typo-highlight-row" style="display: none;">
+            <span class="line-num-placeholder"></span>
+            <span class="highlight-pointer">^^^^^</span>
+            <span class="highlight-hint">Did you mean: 'print'?</span>
+          </div>
+
+          <!-- Dialogue Stream -->
+          <div class="comedy-dialogue-stream" id="dialogue-stream">
+            <!-- Populated via script animations -->
+          </div>
+
+          <!-- Realistic Terminal Output Box -->
+          <div class="comedy-console-box" id="comedy-console" style="display: none;">
+            <div class="console-header">
+              <span>Terminal — Python 3.12</span>
+              <span class="console-status">Exit code: 1</span>
+            </div>
+            <div class="console-body" id="console-body">
+              <span class="err-trace">Traceback (most recent call last):</span><br>
+              <span class="err-loc">&nbsp;&nbsp;File "first_program.py", line 1, in &lt;module&gt;</span><br>
+              <span class="err-code">&nbsp;&nbsp;&nbsp;&nbsp;pritn("Hello World")</span><br>
+              <span class="err-msg">NameError: name 'pritn' is not defined. Did you mean: 'print'?</span>
+            </div>
+          </div>
+
+          <!-- Comedic Reveal Card -->
+          <div class="comedic-reveal-box" id="comedic-reveal" style="display: none;">
+            <div class="reveal-badge">✅ Problem solved.</div>
+            <div class="reveal-metrics">
+              <div class="metric-item">
+                <span class="metric-label">Estimated debugging time:</span>
+                <strong class="metric-val text-green">3 seconds.</strong>
+              </div>
+              <div class="metric-item">
+                <span class="metric-label">Time spent asking the professor:</span>
+                <strong class="metric-val text-amber">2 minutes. 😂</strong>
+              </div>
+            </div>
+            <p class="reveal-punchline">And yes... we still ask.</p>
+          </div>
+
+          <!-- Hidden Easter Egg Box -->
+          <div class="easter-egg-box" id="easter-egg-box" style="display: none;">
+            <div class="easter-prompt">> sudo professor --fix-my-code</div>
+            <div class="easter-response" id="easter-response"></div>
+          </div>
+
+        </div>
+
+        <!-- Controls Footer -->
+        <div class="comedy-footer">
+          <div class="comedy-footer-left">
+            <button type="button" class="interactive-btn btn-secondary btn-sm" id="btn-replay-debug">
+              <span class="btn-icon">🔄</span>
+              <span>Debug it again</span>
+            </button>
+            <button type="button" class="interactive-btn btn-primary btn-sm btn-glow" id="btn-ask-prof">
+              <span class="btn-icon">🙋‍♂️</span>
+              <span>Ask the Professor</span>
+            </button>
+          </div>
+          <div class="comedy-progress-indicator">
+            <div class="comedy-progress-bar" id="comedy-progress-bar"></div>
+          </div>
+        </div>
+
+        <!-- Interactive "Ask the Professor" Chat Popup Drawer -->
+        <div class="prof-chat-drawer" id="prof-chat-drawer" style="display: none;">
+          <div class="chat-drawer-header">
+            <span class="chat-status-dot"></span>
+            <span>Office Hours Consultation</span>
+          </div>
+          <div class="chat-messages" id="chat-messages">
+            <!-- Messages populated step by step -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Warm Closing Message -->
+      <div class="debugging-tribute-note reveal-item">
+        <blockquote class="gratitude-quote">
+          <p>“Thank you for answering even the questions we probably should have solved ourselves.” 😄</p>
+        </blockquote>
+        <span class="tribute-sub">Happy Teacher’s Day!</span>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ============ ICPC SECTION ============ -->
   <section id="icpc" class="section icpc-section">
     <div class="icpc-bg" aria-hidden="true">
