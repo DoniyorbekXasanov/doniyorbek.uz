@@ -15,21 +15,28 @@
   <meta name="color-scheme" content="light dark">
 
   <!-- SEO -->
-  <title>Coding | Doniyorbek Xasanov</title>
-  <meta name="description" content="Personal website of Doniyorbek Xasanov">
-  <meta property="og:title" content="Coding">
+  <title>Coding & Codewars Dashboard | Doniyorbek Xasanov</title>
+  <meta name="description" content="Dynamic Codewars analytics dashboard, activity heatmap, language statistics, and completed kata history for Doniyorbek Xasanov.">
+  <meta property="og:title" content="Coding & Codewars Dashboard">
   <meta property="og:locale" content="en_US">
-  <meta property="og:description" content="Personal website of Doniyorbek Xasanov">
+  <meta property="og:description" content="Dynamic Codewars analytics dashboard, activity heatmap, language statistics, and completed kata history for Doniyorbek Xasanov.">
   <link rel="canonical" href="https://doniyorbek.uz/coding/">
   <meta property="og:url" content="https://doniyorbek.uz/coding/">
   <meta property="og:site_name" content="Doniyorbek Xasanov">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <meta property="twitter:title" content="Coding">
+  <meta property="twitter:title" content="Coding & Codewars Dashboard">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","description":"Personal website of Doniyorbek Xasanov","headline":"Coding","url":"https://doniyorbek.uz/coding/"}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Coding & Codewars Dashboard",
+    "description": "Dynamic Codewars analytics dashboard, activity heatmap, language statistics, and completed kata history for Doniyorbek Xasanov.",
+    "headline": "Coding & Codewars Dashboard",
+    "url": "https://doniyorbek.uz/coding/"
+  }
   </script>
 
   <!-- Dark mode: apply the initial theme before CSS loads to prevent flash -->
@@ -62,6 +69,7 @@
   </script>
 
   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/codewars-dashboard.css">
   <script src="/assets/js/theme.js" defer></script>
 </head>
 
@@ -126,88 +134,349 @@
     <div class="wrapper">
       <article class="post">
         <header class="post-header">
-          <h1 class="post-title">Coding</h1>
+          <h1 class="post-title">Codewars Dashboard</h1>
         </header>
+
         <div class="post-content">
 
-          <section class="codewars-page">
-            <div class="codewars-status-bar">
-              <a class="codewars-profile-name" href="/codewars/member/?user=doniyorbekxasanov">doniyorbekxasanov</a>
+          <p class="codewars-note">
+            I practice on <a href="https://www.codewars.com/" target="_blank" rel="noopener noreferrer">Codewars</a>
+            to sharpen problem-solving and programming fluency. If you're interested in competitive programming with heavier math and algorithmic focus, try Codeforces or AtCoder.
+            You can also join our <a href="https://t.me/+tZNnwbZTBqYwMDcy" target="_blank" rel="noopener noreferrer">Telegram group</a> for coding discussions and contest prep.
+          </p>
+
+          <!-- ==================== DYNAMIC CODEWARS DASHBOARD ==================== -->
+          <section class="cw-dashboard" aria-label="Codewars Analytics Dashboard">
+
+            <!-- Control Bar -->
+            <div class="cw-control-bar" id="cw-status-bar">
+              <div class="cw-control-left">
+                <span class="cw-status-pill is-loading" id="cw-status-pill">
+                  <span class="cw-status-dot"></span>
+                  <span id="cw-status-text">Connecting to Codewars API...</span>
+                </span>
+                <span class="cw-last-updated" id="cw-last-updated">Checking updates...</span>
+              </div>
+              <div class="cw-control-right">
+                <button class="cw-btn" id="cw-refresh-btn" type="button" title="Fetch latest data from Codewars API">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <polyline points="1 20 1 14 7 14"></polyline>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                  </svg>
+                  <span>Refresh</span>
+                </button>
+                <a class="cw-btn cw-btn-primary" href="https://www.codewars.com/users/DoniyorbekXasanov" target="_blank"
+                  rel="noopener noreferrer" title="View official Codewars profile">
+                  <span>Codewars Profile</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
             </div>
 
-            <p class="codewars-note">I recommend <a href="https://www.codewars.com/" target="_blank"
-                rel="noopener noreferrer">Codewars</a> to practice Python syntax and improve your problem-solving
-              skills. It&rsquo;s been very beneficial for me, and I like that you can go a long way with programming
-              knowledge alone.</p>
-            <p class="codewars-note">If you&rsquo;re interested in competitive programming, where algorithms and math
-              play a bigger role, try Codeforces or AtCoder.</p>
-            <p class="codewars-note">Join our <a href="https://t.me/+tZNnwbZTBqYwMDcy" target="_blank"
-                rel="noopener noreferrer">Telegram group</a> for coding questions, practice, contest announcements, and
-              help when you get stuck.</p>
-
-            <!-- ==================== Codewars Clan Leaderboard ==================== -->
-            <section class="codewars-section codewars-clan" data-codewars-clan="" data-clan-name="akhu"
-              data-honor-snapshot-url="https://codewars-honor-snapshot.sukhrobyangibaev.workers.dev/"
-              aria-labelledby="coding-codewars-title">
-
-              <div class="codewars-section-heading">
-                <h2 id="coding-codewars-title">Codewars</h2>
+            <!-- Overview Metric Cards Grid -->
+            <div class="cw-metrics-grid">
+              <!-- Current Rank -->
+              <div class="cw-metric-card">
+                <div class="cw-metric-card-top">
+                  <span class="cw-metric-label">Rank</span>
+                  <span class="cw-metric-icon">🥋</span>
+                </div>
+                <div class="cw-metric-value" id="cw-metric-rank">
+                  <div class="cw-skeleton cw-skeleton-title"></div>
+                </div>
+                <div class="cw-metric-sub" id="cw-metric-rank-sub">Loading score...</div>
               </div>
 
-              <div class="codewars-section-heading">
-                <h3 id="codewars-clan-title">akhu clan</h3>
-                <span class="codewars-status-bar">
-                  <span class="codewars-muted" id="codewars-clan-status" role="status" aria-live="polite">Loading
-                    clan...</span>
-                  <button class="codewars-refresh" id="codewars-clan-refresh" type="button"
-                    aria-label="Refresh clan data" title="Refresh now">
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                      <polyline points="23 4 23 10 17 10"></polyline>
-                      <polyline points="1 20 1 14 7 14"></polyline>
-                      <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              <!-- Honor Points -->
+              <div class="cw-metric-card">
+                <div class="cw-metric-card-top">
+                  <span class="cw-metric-label">Honor</span>
+                  <span class="cw-metric-icon">🎖️</span>
+                </div>
+                <div class="cw-metric-value" id="cw-metric-honor">
+                  <div class="cw-skeleton cw-skeleton-title"></div>
+                </div>
+                <div class="cw-metric-sub" id="cw-metric-honor-sub">Community points</div>
+              </div>
+
+              <!-- Total Solved -->
+              <div class="cw-metric-card">
+                <div class="cw-metric-card-top">
+                  <span class="cw-metric-label">Total Solved</span>
+                  <span class="cw-metric-icon">⚔️</span>
+                </div>
+                <div class="cw-metric-value" id="cw-metric-katas">
+                  <div class="cw-skeleton cw-skeleton-title"></div>
+                </div>
+                <div class="cw-metric-sub" id="cw-metric-katas-sub">Completed katas</div>
+              </div>
+
+              <!-- Leaderboard Position -->
+              <div class="cw-metric-card">
+                <div class="cw-metric-card-top">
+                  <span class="cw-metric-label">Leaderboard</span>
+                  <span class="cw-metric-icon">🏆</span>
+                </div>
+                <div class="cw-metric-value" id="cw-metric-leaderboard">
+                  <div class="cw-skeleton cw-skeleton-title"></div>
+                </div>
+                <div class="cw-metric-sub" id="cw-metric-leaderboard-sub">Global standing</div>
+              </div>
+
+              <!-- Active Calendar Days -->
+              <div class="cw-metric-card">
+                <div class="cw-metric-card-top">
+                  <span class="cw-metric-label">Active Days</span>
+                  <span class="cw-metric-icon">📅</span>
+                </div>
+                <div class="cw-metric-value" id="cw-metric-active-days">
+                  <div class="cw-skeleton cw-skeleton-title"></div>
+                </div>
+                <div class="cw-metric-sub" id="cw-metric-active-days-sub">Unique solving days</div>
+              </div>
+
+              <!-- Authored Kata -->
+              <div class="cw-metric-card">
+                <div class="cw-metric-card-top">
+                  <span class="cw-metric-label">Authored</span>
+                  <span class="cw-metric-icon">✍️</span>
+                </div>
+                <div class="cw-metric-value" id="cw-metric-authored">
+                  <div class="cw-skeleton cw-skeleton-title"></div>
+                </div>
+                <div class="cw-metric-sub" id="cw-metric-authored-sub">Created katas</div>
+              </div>
+            </div>
+
+            <!-- GitHub-Style Activity Heatmap -->
+            <div class="cw-panel" id="cw-heatmap-panel">
+              <div class="cw-panel-header">
+                <div>
+                  <h2 class="cw-panel-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
-                  </button>
-                </span>
+                    Activity Heatmap
+                  </h2>
+                  <div class="cw-panel-subtitle">Aggregated completion timestamps across every solved challenge</div>
+                </div>
+                <div class="cw-history-controls">
+                  <button class="cw-pill-btn is-active" id="cw-hm-range-12m" type="button">Last 12 Months</button>
+                  <button class="cw-pill-btn" id="cw-hm-range-all" type="button">All Time</button>
+                </div>
               </div>
 
-              <p class="codewars-note">To join us and appear on this leaderboard, set your clan to <strong>akhu</strong>
-                in your Codewars profile settings.</p>
-              <p class="codewars-note">A note for my friends: if you can't solve a kata on your own, click "Unlock
-                Solutions" first, even if you only want a small hint from AI and plan to solve it without reading the
-                solutions. This keeps the leaderboard honest.</p>
-
-              <div class="codewars-clan-panels">
-                <div class="codewars-panel codewars-clan-board-panel">
-                  <h4>Leaderboard</h4>
-                  <div class="codewars-clan-board" id="codewars-clan-board" role="region"
-                    aria-label="Codewars leaderboard, scrollable" tabindex="0"></div>
+              <div class="cw-heatmap-container">
+                <!-- Heatmap Stats Summary -->
+                <div class="cw-heatmap-stats" id="cw-heatmap-summary">
+                  <div class="cw-skeleton cw-skeleton-text" style="width: 300px;"></div>
                 </div>
 
-                <details class="codewars-panel codewars-clan-activity-panel" id="codewars-daily-activity">
-                  <summary class="codewars-activity-summary">
-                    <h4>Daily activity</h4>
-                  </summary>
-                  <div class="codewars-activity-content">
-                    <div class="codewars-clan-activity" id="codewars-clan-activity"></div>
-                    <div class="codewars-clan-activity-footer" id="codewars-clan-activity-footer" hidden>
-                      <span class="codewars-clan-activity-progress" id="codewars-clan-activity-progress" role="status"
-                        aria-live="polite" aria-atomic="true"></span>
-                      <button class="codewars-load-more codewars-clan-load-more" id="codewars-clan-load-more"
-                        type="button" aria-controls="codewars-clan-activity" hidden>Load more</button>
+                <!-- Scrollable Grid -->
+                <div class="cw-heatmap-scroll-wrap" id="cw-heatmap-scroll-wrap">
+                  <div class="cw-heatmap-inner">
+                    <div class="cw-heatmap-weekdays" aria-hidden="true">
+                      <span></span>
+                      <span>Mon</span>
+                      <span></span>
+                      <span>Wed</span>
+                      <span></span>
+                      <span>Fri</span>
+                      <span></span>
+                    </div>
+                    <div class="cw-heatmap-grid-area" id="cw-heatmap-grid-area">
+                      <div class="cw-skeleton cw-skeleton-box" style="height: 110px; width: 650px;"></div>
                     </div>
                   </div>
-                </details>
+                </div>
+
+                <!-- Heatmap Legend -->
+                <div class="cw-heatmap-footer">
+                  <span>Hover or focus on any cell to view exact daily kata count.</span>
+                  <div class="cw-heatmap-legend">
+                    <span>Less</span>
+                    <span class="cw-heatmap-legend-cell" style="background: var(--cw-hm-0);"></span>
+                    <span class="cw-heatmap-legend-cell" style="background: var(--cw-hm-1);"></span>
+                    <span class="cw-heatmap-legend-cell" style="background: var(--cw-hm-2);"></span>
+                    <span class="cw-heatmap-legend-cell" style="background: var(--cw-hm-3);"></span>
+                    <span class="cw-heatmap-legend-cell" style="background: var(--cw-hm-4);"></span>
+                    <span>More</span>
+                  </div>
+                </div>
               </div>
-            </section>
+            </div>
+
+            <!-- Programming Language Statistics -->
+            <div class="cw-panel" id="cw-lang-panel">
+              <div class="cw-panel-header">
+                <div>
+                  <h2 class="cw-panel-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    Language Analytics
+                  </h2>
+                  <div class="cw-panel-subtitle">Solved kata breakdown & language-specific rank progression</div>
+                </div>
+              </div>
+
+              <!-- Segmented Progress Bar -->
+              <div class="cw-lang-progress-bar" id="cw-lang-progress-bar">
+                <div class="cw-skeleton cw-skeleton-text" style="width: 100%; height: 100%;"></div>
+              </div>
+
+              <!-- Detailed Language Cards -->
+              <div class="cw-lang-cards" id="cw-lang-cards">
+                <div class="cw-skeleton cw-skeleton-box"></div>
+                <div class="cw-skeleton cw-skeleton-box"></div>
+              </div>
+
+              <div class="cw-lang-rule-note">
+                * Note on counting rule: Language totals are calculated from <code>completedLanguages</code> across all completed kata records. If a challenge was completed in multiple programming languages, each completed language is counted towards its respective language total to accurately reflect multi-language problem solving.
+              </div>
+            </div>
+
+            <!-- Historical Rank & Honor Tracking -->
+            <div class="cw-panel" id="cw-history-panel">
+              <div class="cw-panel-header">
+                <div>
+                  <h2 class="cw-panel-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    Historical Rank & Honor Trajectory
+                  </h2>
+                  <div class="cw-panel-subtitle">Durable snapshot tracking of honor, score, and leaderboard standing</div>
+                </div>
+                <div class="cw-history-controls">
+                  <button class="cw-pill-btn is-active" id="cw-hist-honor-btn" type="button">Honor</button>
+                  <button class="cw-pill-btn" id="cw-hist-score-btn" type="button">Rank Score</button>
+                  <button class="cw-pill-btn" id="cw-hist-lb-btn" type="button">Leaderboard</button>
+                  <button class="cw-pill-btn" id="cw-export-snapshots-btn" type="button" title="Download recorded snapshot history as JSON">Export JSON</button>
+                </div>
+              </div>
+
+              <div class="cw-chart-container" id="cw-history-chart">
+                <div class="cw-skeleton cw-skeleton-box" style="height: 160px;"></div>
+              </div>
+            </div>
+
+            <!-- Complete Kata History Explorer -->
+            <div class="cw-panel" id="cw-kata-explorer-panel">
+              <div class="cw-panel-header">
+                <div>
+                  <h2 class="cw-panel-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    Completed Kata Library
+                  </h2>
+                  <div class="cw-panel-subtitle">Comprehensive archive of all solved challenges with on-demand details</div>
+                </div>
+                <span class="cw-kata-count" id="cw-kata-count">Loading katas...</span>
+              </div>
+
+              <!-- Toolbar -->
+              <div class="cw-kata-toolbar">
+                <div class="cw-search-wrap">
+                  <svg class="cw-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="search" class="cw-search-input" id="cw-kata-search" placeholder="Search kata title...">
+                </div>
+
+                <div class="cw-filter-group">
+                  <select class="cw-select" id="cw-kata-lang-select" aria-label="Filter by language">
+                    <option value="all">All Languages</option>
+                  </select>
+
+                  <select class="cw-select" id="cw-kata-sort-select" aria-label="Sort katas">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="az">Name (A-Z)</option>
+                    <option value="za">Name (Z-A)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Kata List -->
+              <div class="cw-kata-list" id="cw-kata-list">
+                <div class="cw-skeleton cw-skeleton-box" style="height: 50px; margin-bottom: 6px;"></div>
+                <div class="cw-skeleton cw-skeleton-box" style="height: 50px; margin-bottom: 6px;"></div>
+                <div class="cw-skeleton cw-skeleton-box" style="height: 50px;"></div>
+              </div>
+
+              <!-- Pagination -->
+              <div class="cw-kata-pagination" id="cw-kata-pagination" style="display: none;">
+                <span class="cw-kata-date" id="cw-kata-page-info">Page 1 of 1</span>
+                <div class="cw-page-nav">
+                  <button class="cw-btn" id="cw-kata-page-prev" type="button">Previous</button>
+                  <button class="cw-btn" id="cw-kata-page-next" type="button">Next</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Clan Leaderboard -->
+            <div class="cw-panel" id="cw-clan-panel">
+              <div class="cw-panel-header">
+                <div>
+                  <h2 class="cw-panel-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span id="cw-clan-name-heading">Clan Leaderboard</span>
+                  </h2>
+                  <div class="cw-panel-subtitle" id="cw-clan-status">Connecting to clan roster...</div>
+                </div>
+                <div class="cw-history-controls">
+                  <span style="font-size: 0.78rem; color: var(--cw-text-muted);">Quick Clan:</span>
+                  <button class="cw-pill-btn" id="cw-clan-preset-codewars" type="button">Codewars</button>
+                  <button class="cw-pill-btn" id="cw-clan-preset-akhu" type="button">akhu</button>
+                </div>
+              </div>
+
+              <!-- Dynamic Clan Banner -->
+              <div class="cw-clan-banner">
+                <div class="cw-clan-banner-info">
+                  <span>Current Clan:</span>
+                  <span class="cw-clan-tag" id="cw-clan-badge">Codewars</span>
+                  <span style="font-size: 0.8rem; color: var(--cw-text-muted);">
+                    (Automatically synchronized with Doniyorbek's profile <code>user.clan</code>)
+                  </span>
+                </div>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <input type="text" class="cw-search-input" id="cw-clan-switch-input" placeholder="Inspect another clan..." style="padding: 5px 10px; width: 160px; font-size: 0.8rem;">
+                  <button class="cw-btn" id="cw-clan-switch-btn" type="button" style="padding: 5px 10px; font-size: 0.8rem;">Go</button>
+                </div>
+              </div>
+
+              <!-- Clan Table Region -->
+              <div class="codewars-clan-board" id="cw-clan-board" role="region" aria-label="Codewars clan leaderboard, scrollable" tabindex="0">
+                <div class="cw-skeleton cw-skeleton-box" style="height: 180px;"></div>
+              </div>
+            </div>
 
           </section>
 
-          <!-- Codewars & Contest Scripts -->
+          <!-- Codewars Helper Scripts -->
           <script src="/assets/js/codewars-common.js" defer></script>
           <script src="/assets/js/codewars-kata-info.js" defer></script>
-          <script src="/assets/js/codewars-clan.js" defer></script>
-
+          <script src="/assets/js/codewars-dashboard.js" defer></script>
 
         </div>
       </article>
