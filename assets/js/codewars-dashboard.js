@@ -332,7 +332,8 @@ window.CodewarsKataInfo = (function() {
     clanData: null,
     clanLoading: false,
     selectedClan: null,
-    customClanName: ''
+    customClanName: '',
+    clanExpanded: false
   };
 
   // DOM Elements
@@ -375,7 +376,6 @@ window.CodewarsKataInfo = (function() {
     els.historyHonorBtn = document.getElementById('cw-hist-honor-btn');
     els.historyScoreBtn = document.getElementById('cw-hist-score-btn');
     els.historyLbBtn = document.getElementById('cw-hist-lb-btn');
-    els.exportSnapshotsBtn = document.getElementById('cw-export-snapshots-btn');
 
     // Kata Explorer
     els.kataSearchInput = document.getElementById('cw-kata-search');
@@ -507,7 +507,7 @@ window.CodewarsKataInfo = (function() {
 
     // Live Fetch Profile
     var profileUrl = API_BASE + '/users/' + encodeURIComponent(USERNAME);
-    setStatus('Connecting to Codewars API...', 'loading');
+    setStatus(forceRefresh ? 'Refreshing stats...' : 'Loading stats...', 'loading');
 
     fetchJson(profileUrl)
       .then(function (profile) {
@@ -534,7 +534,7 @@ window.CodewarsKataInfo = (function() {
       .catch(function (err) {
         console.error('Failed to load Codewars data', err);
         setLoadingState(false);
-        setStatus('Error loading live data: ' + err.message, 'error');
+        setStatus('Unable to sync live data', 'error');
         renderErrorState(err.message);
       });
   }
@@ -573,11 +573,8 @@ window.CodewarsKataInfo = (function() {
 
   function onDataLoaded(isLive) {
     setLoadingState(false);
-    setStatus(isLive ? 'Live API Connected' : 'Cached Data (Refreshed recently)', 'connected');
-
-    if (els.lastUpdated && state.fetchedAt) {
-      els.lastUpdated.textContent = 'Updated ' + formatDateTime(state.fetchedAt);
-    }
+    var updatedText = state.fetchedAt ? ('Updated ' + formatDateTime(state.fetchedAt)) : 'Updated recently';
+    setStatus(updatedText, 'connected');
 
     // Process & Record Historical Snapshot
     handleHistoricalSnapshots();
@@ -1261,10 +1258,10 @@ window.CodewarsKataInfo = (function() {
     }
   }
 
-  // --- Dynamic Clan Leaderboard ---
   function loadClanLeaderboard(clanName) {
     if (!clanName) clanName = (state.profile && state.profile.clan) || 'Codewars';
     state.selectedClan = clanName;
+    state.clanExpanded = false;
 
     if (els.clanNameHeading) els.clanNameHeading.textContent = clanName + ' clan';
     if (els.clanBadge) els.clanBadge.textContent = clanName;
@@ -1303,6 +1300,8 @@ window.CodewarsKataInfo = (function() {
       });
   }
 
+  var INITIAL_CLAN_LIMIT = 10;
+
   function renderClanBoard(members) {
     if (!els.clanBoard) return;
     if (!members || !members.length) {
@@ -1314,6 +1313,9 @@ window.CodewarsKataInfo = (function() {
     var sorted = members.slice().sort(function (a, b) {
       return (Number(b.honor) || 0) - (Number(a.honor) || 0);
     });
+
+    var hasMore = sorted.length > INITIAL_CLAN_LIMIT;
+    var displayed = (hasMore && !state.clanExpanded) ? sorted.slice(0, INITIAL_CLAN_LIMIT) : sorted;
 
     var table = document.createElement('table');
     table.className = 'codewars-clan-table';
@@ -1330,7 +1332,7 @@ window.CodewarsKataInfo = (function() {
     table.appendChild(thead);
 
     var tbody = document.createElement('tbody');
-    sorted.forEach(function (m, idx) {
+    displayed.forEach(function (m, idx) {
       var isMe = m.username && m.username.toLowerCase() === USERNAME.toLowerCase();
       var tr = document.createElement('tr');
       if (isMe) tr.style.backgroundColor = 'var(--cw-brand-light)';
@@ -1353,6 +1355,26 @@ window.CodewarsKataInfo = (function() {
     table.appendChild(tbody);
     els.clanBoard.innerHTML = '';
     els.clanBoard.appendChild(table);
+
+    if (hasMore) {
+      var toggleWrap = document.createElement('div');
+      toggleWrap.className = 'cw-clan-toggle-wrap';
+
+      var toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'cw-btn';
+      toggleBtn.textContent = state.clanExpanded
+        ? 'Show top ' + INITIAL_CLAN_LIMIT + ' members'
+        : 'View all ' + sorted.length + ' members';
+
+      toggleBtn.addEventListener('click', function () {
+        state.clanExpanded = !state.clanExpanded;
+        renderClanBoard(members);
+      });
+
+      toggleWrap.appendChild(toggleBtn);
+      els.clanBoard.appendChild(toggleWrap);
+    }
   }
 
   function formatRankNumber(rank) {
@@ -1408,22 +1430,6 @@ window.CodewarsKataInfo = (function() {
         state.historyMetric = 'leaderboard';
         setActiveHistoryBtn(els.historyLbBtn);
         renderHistoricalChart();
-      });
-    }
-
-    // Export snapshots
-    if (els.exportSnapshotsBtn) {
-      els.exportSnapshotsBtn.addEventListener('click', function () {
-        var jsonStr = JSON.stringify(state.historySnapshots, null, 2);
-        var blob = new Blob([jsonStr], { type: 'application/json' });
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'codewars-snapshots-' + USERNAME + '.json';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
       });
     }
 
