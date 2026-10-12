@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://doniyorbek.uz/sitemap.xml

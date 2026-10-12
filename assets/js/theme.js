@@ -103,4 +103,50 @@
     setPreference: setPreference,
     applyPreference: applyPreference
   };
+
+  function initThemeToggle() {
+    var toggle = document.getElementById('theme-toggle');
+    var theme_order = ['light', 'dark', 'system'];
+    var theme_labels = {
+      light: 'light',
+      dark: 'dark',
+      system: 'system'
+    };
+
+    if (!toggle) {
+      return;
+    }
+
+    function getNextPreference(pref) {
+      var current_index = theme_order.indexOf(pref);
+      if (current_index === -1) {
+        return theme_order[0];
+      }
+      return theme_order[(current_index + 1) % theme_order.length];
+    }
+
+    function renderThemeState() {
+      var pref = current_preference;
+      var next_pref = getNextPreference(pref);
+      var button_text = 'Theme: ' + theme_labels[pref] + '. Click to switch to ' + theme_labels[next_pref] + '.';
+
+      toggle.setAttribute('aria-label', button_text);
+      toggle.setAttribute('title', button_text);
+    }
+
+    toggle.addEventListener('click', function() {
+      var next_pref = getNextPreference(current_preference);
+      setPreference(next_pref);
+      renderThemeState();
+    });
+
+    window.addEventListener('themechange', renderThemeState);
+    renderThemeState();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
 })();

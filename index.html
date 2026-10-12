@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
@@ -123,14 +124,15 @@
     </div>
   </header>
 
-  <script src="/assets/js/theme-toggle.js" defer></script>
-
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
 
       <div class="profile-photo-wrap">
-        <img src="/assets/images/doniyorbek.jpg" alt="Doniyorbek Xasanov" class="profile-photo" loading="eager"
-          decoding="async" fetchpriority="high" width="250" height="250">
+        <picture>
+          <source srcset="/assets/images/doniyorbek.webp" type="image/webp">
+          <img src="/assets/images/doniyorbek.jpg" alt="Doniyorbek Xasanov" class="profile-photo" loading="eager"
+            decoding="async" fetchpriority="high" width="250" height="250">
+        </picture>
       </div>
 
       <p>Hi, I'm Doniyorbek! 👋</p>

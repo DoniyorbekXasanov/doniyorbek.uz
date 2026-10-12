@@ -838,3 +838,213 @@
     justify-content: space-between;
   }
 }
+
+/* Note above dashboard */
+.codewars-note {
+  color: var(--cw-text-sub);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.codewars-note a {
+  color: var(--cw-brand);
+}
+
+.codewars-note a:hover {
+  text-decoration: underline;
+}
+
+/* Clan Table */
+.codewars-clan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  border: none;
+  margin-bottom: 0;
+}
+
+.codewars-clan-table th,
+.codewars-clan-table td {
+  padding: 7px 10px;
+  border: none;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  white-space: nowrap;
+}
+
+.codewars-clan-table thead th {
+  background: var(--table-header-bg, #f0f0f0);
+  border-bottom: 2px solid var(--table-header-border-bottom, #d0d0d0);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--grey-color-dark, #616161);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.codewars-clan-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.codewars-clan-table tbody tr:hover {
+  background: var(--cw-bg-subtle, #f9fafb);
+}
+
+.codewars-clan-pos {
+  text-align: center;
+  color: var(--grey-color, #828282);
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+}
+
+.codewars-clan-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.codewars-clan-rank {
+  color: var(--grey-color-dark, #616161);
+  font-size: 0.84rem;
+}
+
+.codewars-clan-member {
+  color: var(--cw-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.codewars-clan-member:hover {
+  text-decoration: underline;
+}
+
+.codewars-clan-active {
+  color: var(--grey-color, #828282);
+  font-size: 0.84rem;
+}
+
+/* Language Chip */
+.codewars-language-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--cw-bg-subtle, #f9fafb);
+  color: var(--grey-color-dark, #616161);
+  font-size: 0.74rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Kata Info Panel (on-demand) */
+.codewars-kata-info-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 999px;
+  background: var(--card-bg, #fafafa);
+  color: var(--grey-color-dark, #616161);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.codewars-kata-info-button:hover {
+  border-color: var(--cw-brand);
+  color: var(--cw-brand);
+}
+
+.codewars-kata-info-button:disabled {
+  cursor: default;
+}
+
+.codewars-kata-info-button.is-loading {
+  animation: codewars-info-pulse 0.9s ease-in-out infinite;
+}
+
+.codewars-kata-info-button[aria-expanded="true"] {
+  border-color: var(--cw-brand);
+  background: var(--cw-brand-light);
+  color: var(--cw-brand);
+}
+
+@keyframes codewars-info-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.codewars-kata-info {
+  display: grid;
+  gap: 8px;
+  margin: 2px 0 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-left: 3px solid var(--cw-brand);
+  border-radius: 8px;
+  background: var(--card-bg, #fafafa);
+  font-size: 0.84rem;
+  color: var(--grey-color-dark, #616161);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.codewars-kata-info-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+
+.codewars-kata-info-rank {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--cw-brand-light);
+  color: var(--text-color, #333333);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.codewars-kata-info-fact {
+  white-space: nowrap;
+}
+
+.codewars-kata-info-author {
+  color: var(--grey-color-dark, #616161);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.codewars-kata-info-author:hover {
+  color: var(--cw-brand);
+  text-decoration: underline;
+}
+
+.codewars-kata-info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.codewars-kata-info-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 999px;
+  color: var(--grey-color, #828282);
+  font-size: 0.74rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
