@@ -113,6 +113,28 @@ figure {
   border: 0;
 }
 
+.skip-link:focus {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  width: auto;
+  height: auto;
+  padding: 10px 18px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--brand-color);
+  color: var(--on-brand-color);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  z-index: 10000;
+  text-decoration: none;
+  outline: 2px solid var(--text-color);
+}
+
 body {
   font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: var(--text-color);
@@ -251,6 +273,12 @@ pre>code {
   border-bottom: 1px solid var(--border-color);
   min-height: 55.95px;
   position: relative;
+}
+
+.site-header .wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .site-title {
@@ -453,6 +481,14 @@ pre>code {
   object-fit: cover;
 }
 
+.home-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
 /* --- 10. Site Footer --- */
 .site-footer {
   border-top: 1px solid var(--border-color);
@@ -598,22 +634,6 @@ table tr:nth-child(even) {
   font-size: 4em;
   line-height: 1;
   letter-spacing: 0;
-}
-
-.easter-egg {
-  cursor: pointer;
-  color: inherit;
-  text-decoration: none;
-}
-
-.easter-egg:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-#easterEggGif {
-  margin-top: 1em;
-  display: none;
 }
 
 /* --- 13. Animations --- */

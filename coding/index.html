@@ -69,12 +69,17 @@
     })();
   </script>
 
+  <!-- Preconnect to Codewars API for faster network handshake -->
+  <link rel="preconnect" href="https://www.codewars.com">
+  <link rel="dns-prefetch" href="https://www.codewars.com">
+
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/codewars-dashboard.css">
   <script src="/assets/js/theme.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link visually-hidden" href="#main-content">Skip to main content</a>
 
   <header class="site-header" role="banner">
     <div class="wrapper">
@@ -124,13 +129,12 @@
         </label>
         <div class="trigger">
           <a class="page-link" href="/coding/">Coding</a>
-          <a class="page-link" href="/falsafa">Falsafa</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <main class="page-content" aria-label="Content">
+  <main id="main-content" class="page-content" aria-label="Content">
     <div class="wrapper">
       <article class="post">
         <header class="post-header">
