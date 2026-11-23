@@ -359,6 +359,10 @@ pre>code {
   margin-right: 20px;
 }
 
+.site-nav .page-link[aria-current="page"] {
+  font-weight: 600;
+}
+
 @media screen and (max-width: 600px) {
   .site-nav {
     position: absolute;
