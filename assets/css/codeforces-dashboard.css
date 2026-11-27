@@ -582,7 +582,7 @@
 /* Breakdown bars */
 .cf-breakdown-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 24px;
 }
 
@@ -667,12 +667,14 @@
   border: 1px solid var(--cf-card-border);
   background: var(--cf-card-bg);
   color: var(--cf-text-main);
+  max-width: 100%;
 }
 
 .cf-input {
-  flex: 1;
-  min-width: 200px;
+  flex: 1 1 200px;
+  min-width: 0;
   max-width: 320px;
+  width: 100%;
 }
 
 .cf-input:focus,
@@ -842,4 +844,11 @@
   .cf-breakdown-grid { grid-template-columns: 1fr; }
   .cf-list-item { grid-template-columns: 1fr; }
   .cf-input { max-width: none; }
+}
+
+@media screen and (max-width: 400px) {
+  .cf-metrics-grid { grid-template-columns: 1fr; }
+  .cf-metric-card { padding: 12px; }
+  .cf-panel { padding: 14px; }
+  .cf-control-bar { padding: 10px 12px; }
 }
