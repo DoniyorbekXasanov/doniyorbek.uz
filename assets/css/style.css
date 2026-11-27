@@ -541,7 +541,8 @@ pre>code {
   padding: 0;
 }
 
-.footer-link {
+.footer-link,
+.footer-link:visited {
   display: inline-flex;
   align-items: center;
   gap: 7px;

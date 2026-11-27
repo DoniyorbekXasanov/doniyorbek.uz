@@ -14,19 +14,18 @@
   <meta name="theme-color" content="#ffffff" id="theme-color-meta">
   <meta name="color-scheme" content="light dark">
 
-
   <!-- SEO -->
-  <title>Coding & Codeforces Dashboard | Doniyorbek Xasanov</title>
-  <meta name="description" content="Live Codeforces dashboard for Doniyorbek Xasanov: rating history, contest results, activity heatmap, verdict and language statistics, and solved problems.">
-  <meta property="og:title" content="Coding & Codeforces Dashboard">
+  <title>Coding | Doniyorbek Xasanov</title>
+  <meta name="description" content="Codeforces competitive programming dashboard for DoniyorbekXasanov: rating history, contest results, problem-solving analytics, and submissions.">
+  <meta property="og:title" content="Coding | Doniyorbek Xasanov">
   <meta property="og:locale" content="en_US">
-  <meta property="og:description" content="Live Codeforces dashboard for Doniyorbek Xasanov: rating history, contest results, activity heatmap, verdict and language statistics, and solved problems.">
+  <meta property="og:description" content="Codeforces competitive programming dashboard for DoniyorbekXasanov: rating history, contest results, problem-solving analytics, and submissions.">
   <link rel="canonical" href="https://doniyorbek.uz/coding/">
   <meta property="og:url" content="https://doniyorbek.uz/coding/">
   <meta property="og:site_name" content="Doniyorbek Xasanov">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <meta property="twitter:title" content="Coding & Codeforces Dashboard">
+  <meta property="twitter:title" content="Coding | Doniyorbek Xasanov">
   <meta property="og:image" content="https://doniyorbek.uz/assets/images/doniyorbek.jpg">
   <meta property="og:image:alt" content="Photo of Doniyorbek Xasanov">
 
@@ -35,13 +34,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Coding & Codeforces Dashboard",
-    "description": "Live Codeforces dashboard for Doniyorbek Xasanov: rating history, contest results, activity heatmap, verdict and language statistics, and solved problems.",
-    "headline": "Coding & Codeforces Dashboard",
+    "name": "Coding | Doniyorbek Xasanov",
+    "description": "Codeforces competitive programming dashboard for DoniyorbekXasanov: rating history, contest results, problem-solving analytics, and submissions.",
     "url": "https://doniyorbek.uz/coding/"
   }
   </script>
-
 
   <!-- Dark mode: apply the initial theme before CSS loads to prevent flash -->
   <script>
@@ -72,17 +69,15 @@
     })();
   </script>
 
-
-  <!-- Preconnect to Codeforces API for faster network handshake -->
+  <!-- Preconnect to Codeforces API -->
   <link rel="preconnect" href="https://codeforces.com">
   <link rel="dns-prefetch" href="https://codeforces.com">
   <link rel="preconnect" href="https://userpic.codeforces.org">
 
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/codeforces-dashboard.css">
+  <link rel="stylesheet" href="/assets/css/coding.css">
   <script src="/assets/js/theme.js" defer></script>
 </head>
-
 
 <body>
   <a class="skip-link visually-hidden" href="#main-content">Skip to main content</a>
@@ -94,6 +89,7 @@
       <div class="site-header-right">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Theme: system. Click to switch theme."
           title="Theme: system. Click to switch theme.">
+          <!-- Sun icon (light) -->
           <svg class="theme-icon theme-icon-light" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true">
@@ -107,11 +103,13 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
+          <!-- Moon icon (dark) -->
           <svg class="theme-icon theme-icon-dark" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
+          <!-- Monitor icon (system) -->
           <svg class="theme-icon theme-icon-system" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true">
@@ -144,259 +142,120 @@
 
   <main id="main-content" class="page-content" aria-label="Content">
     <div class="wrapper wrapper--wide">
-      <article class="post">
-        <header class="post-header">
-          <h1 class="post-title">Codeforces Dashboard</h1>
+      <div class="cf-dashboard" id="cf-dashboard">
+
+        <!-- Page Header & Sync Status -->
+        <header class="cf-page-header">
+          <div>
+            <h1 class="cf-page-title">Competitive Programming</h1>
+            <p class="cf-page-subtitle">
+              Live analytics from the official <a href="https://codeforces.com/apiHelp" target="_blank" rel="noopener noreferrer">Codeforces API</a>
+              for <a href="https://codeforces.com/profile/DoniyorbekXasanov" target="_blank" rel="noopener noreferrer"><code>DoniyorbekXasanov</code></a>
+            </p>
+          </div>
+          <div class="cf-sync-controls">
+            <span class="cf-sync-status" id="cf-sync-status" aria-live="polite">Loading...</span>
+            <button type="button" class="cf-refresh-btn" id="cf-refresh-btn" aria-label="Refresh Codeforces data">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+              <span>Refresh</span>
+            </button>
+          </div>
         </header>
 
-        <div class="post-content">
+        <!-- Error Banner (hidden unless error) -->
+        <div class="cf-error-banner" id="cf-error-banner" role="alert" hidden></div>
 
-          <p class="cf-note">
-            I practice competitive programming on <a href="https://codeforces.com/" target="_blank" rel="noopener noreferrer">Codeforces</a>
-            to sharpen algorithmic thinking and problem-solving under contest pressure. Everything below is loaded live from the official Codeforces API.
-            You can also join our <a href="https://t.me/+tZNnwbZTBqYwMDcy" target="_blank" rel="noopener noreferrer">Telegram group</a> for coding discussions and contest prep.
-          </p>
+        <!-- 1. Profile Overview -->
+        <section class="cf-section" aria-labelledby="sec-profile">
+          <h2 class="cf-section-title" id="sec-profile">Profile Overview</h2>
+          <div id="cf-profile-container" class="cf-profile-container">
+            <div class="cf-skeleton cf-skeleton--profile"></div>
+          </div>
+        </section>
 
-          <section class="cf-dashboard" aria-label="Codeforces Analytics Dashboard">
+        <!-- 2. Rating History (Exact Codeforces Graph) -->
+        <section class="cf-section" aria-labelledby="sec-rating">
+          <div class="cf-section-head">
+            <h2 class="cf-section-title" id="sec-rating">Rating History</h2>
+            <span class="cf-section-meta" id="cf-rating-meta"></span>
+          </div>
+          <div id="cf-rating-graph-container" class="cf-rating-graph-container">
+            <div class="cf-skeleton cf-skeleton--chart"></div>
+          </div>
+        </section>
 
-            <!-- Control Bar -->
-            <div class="cf-control-bar">
-              <span class="cf-status-pill is-loading" id="cf-status-pill" role="status" aria-live="polite">
-                <span class="cf-status-dot"></span>
-                <span id="cf-status-text">Loading stats...</span>
-              </span>
-              <div class="cf-control-right">
-                <button class="cf-btn" id="cf-refresh-btn" type="button" title="Fetch latest data from Codeforces API">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                    <polyline points="23 4 23 10 17 10"></polyline>
-                    <polyline points="1 20 1 14 7 14"></polyline>
-                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                  </svg>
-                  <span>Refresh</span>
-                </button>
-                <a class="cf-btn cf-btn-primary" href="https://codeforces.com/profile/DoniyorbekXasanov" target="_blank"
-                  rel="noopener noreferrer" title="View official Codeforces profile">
-                  <span>Codeforces Profile</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                </a>
-              </div>
+        <!-- 3. Contest Statistics & History -->
+        <section class="cf-section" aria-labelledby="sec-contests">
+          <div class="cf-section-head">
+            <h2 class="cf-section-title" id="sec-contests">Contest Statistics</h2>
+            <span class="cf-section-meta" id="cf-contests-meta"></span>
+          </div>
+          <div id="cf-contests-container">
+            <div class="cf-skeleton cf-skeleton--table"></div>
+          </div>
+        </section>
+
+        <!-- 4. Problem-Solving Statistics -->
+        <section class="cf-section" aria-labelledby="sec-problems">
+          <div class="cf-section-head">
+            <h2 class="cf-section-title" id="sec-problems">Problem-Solving Statistics</h2>
+            <span class="cf-section-meta" id="cf-problems-meta"></span>
+          </div>
+          <div id="cf-problems-container">
+            <div class="cf-skeleton cf-skeleton--grid"></div>
+          </div>
+        </section>
+
+        <!-- 5. Submission Analytics -->
+        <section class="cf-section" aria-labelledby="sec-submissions">
+          <div class="cf-section-head">
+            <h2 class="cf-section-title" id="sec-submissions">Submission Analytics</h2>
+            <span class="cf-section-meta" id="cf-submissions-meta"></span>
+          </div>
+          <div id="cf-submissions-container">
+            <div class="cf-skeleton cf-skeleton--grid"></div>
+          </div>
+        </section>
+
+        <!-- 6. Topic Analysis -->
+        <section class="cf-section" aria-labelledby="sec-topics">
+          <div class="cf-section-head">
+            <h2 class="cf-section-title" id="sec-topics">Topic Analysis</h2>
+            <span class="cf-section-meta" id="cf-topics-meta"></span>
+          </div>
+          <div id="cf-topics-container">
+            <div class="cf-skeleton cf-skeleton--grid"></div>
+          </div>
+        </section>
+
+        <!-- 7. Recent Activity -->
+        <section class="cf-section" aria-labelledby="sec-recent">
+          <div class="cf-section-head">
+            <h2 class="cf-section-title" id="sec-recent">Recent Activity</h2>
+            <div class="cf-recent-controls" id="cf-recent-controls" hidden>
+              <label for="cf-verdict-filter" class="visually-hidden">Filter by verdict</label>
+              <select id="cf-verdict-filter" class="cf-select">
+                <option value="ALL">All verdicts</option>
+                <option value="OK">Accepted (OK)</option>
+                <option value="WRONG_ANSWER">Wrong Answer</option>
+                <option value="TIME_LIMIT_EXCEEDED">Time Limit Exceeded</option>
+                <option value="RUNTIME_ERROR">Runtime Error</option>
+                <option value="COMPILATION_ERROR">Compilation Error</option>
+                <option value="MEMORY_LIMIT_EXCEEDED">Memory Limit Exceeded</option>
+              </select>
             </div>
+          </div>
+          <div id="cf-recent-container">
+            <div class="cf-skeleton cf-skeleton--table"></div>
+          </div>
+        </section>
 
-            <!-- Profile Card -->
-            <div class="cf-panel cf-profile" id="cf-profile">
-              <div class="cf-skeleton cf-profile-avatar-skeleton"></div>
-              <div class="cf-profile-body">
-                <div class="cf-skeleton cf-skeleton-title"></div>
-                <div class="cf-skeleton cf-skeleton-text" style="width: 70%;"></div>
-                <div class="cf-skeleton cf-skeleton-text" style="width: 50%;"></div>
-              </div>
-            </div>
-
-            <!-- Metric Cards -->
-            <div class="cf-metrics-grid">
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Rating</span>
-                <div class="cf-metric-value" id="cf-metric-rating"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-rating-sub">Current rating</div>
-              </div>
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Max Rating</span>
-                <div class="cf-metric-value" id="cf-metric-max"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-max-sub">Peak rating</div>
-              </div>
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Solved</span>
-                <div class="cf-metric-value" id="cf-metric-solved"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-solved-sub">Unique problems</div>
-              </div>
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Contests</span>
-                <div class="cf-metric-value" id="cf-metric-contests"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-contests-sub">Rated contests</div>
-              </div>
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Submissions</span>
-                <div class="cf-metric-value" id="cf-metric-subs"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-subs-sub">Total attempts</div>
-              </div>
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Acceptance</span>
-                <div class="cf-metric-value" id="cf-metric-acc"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-acc-sub">Accepted submissions</div>
-              </div>
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Active Days</span>
-                <div class="cf-metric-value" id="cf-metric-days"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-days-sub">Days with submissions</div>
-              </div>
-              <div class="cf-metric-card">
-                <span class="cf-metric-label">Hardest Solved</span>
-                <div class="cf-metric-value" id="cf-metric-hardest"><div class="cf-skeleton cf-skeleton-title"></div></div>
-                <div class="cf-metric-sub" id="cf-metric-hardest-sub">Problem rating</div>
-              </div>
-            </div>
-
-            <!-- Rating History -->
-            <div class="cf-panel">
-              <div class="cf-panel-header">
-                <div>
-                  <h2 class="cf-panel-title">Rating History</h2>
-                  <div class="cf-panel-subtitle">Rating after every rated contest, drawn over the Codeforces rank bands</div>
-                </div>
-              </div>
-              <div class="cf-chart-container" id="cf-rating-chart">
-                <div class="cf-skeleton cf-skeleton-box" style="height: 220px;"></div>
-              </div>
-            </div>
-
-            <!-- Contest History -->
-            <div class="cf-panel">
-              <div class="cf-panel-header">
-                <div>
-                  <h2 class="cf-panel-title">Contest History</h2>
-                  <div class="cf-panel-subtitle">Place, rating change, and problems solved in each rated contest</div>
-                </div>
-              </div>
-              <div class="cf-table-wrap" id="cf-contest-table" role="region" aria-label="Contest history, scrollable" tabindex="0">
-                <div class="cf-skeleton cf-skeleton-box" style="height: 140px;"></div>
-              </div>
-            </div>
-
-            <!-- Activity Heatmap -->
-            <div class="cf-panel">
-              <div class="cf-panel-header">
-                <div>
-                  <h2 class="cf-panel-title">Activity Heatmap</h2>
-                  <div class="cf-panel-subtitle">Submissions per day, in your local time zone</div>
-                </div>
-                <div class="cf-pill-group" role="group" aria-label="Heatmap range">
-                  <button class="cf-pill-btn is-active" id="cf-hm-12m" type="button" aria-pressed="true">Last 12 Months</button>
-                  <button class="cf-pill-btn" id="cf-hm-all" type="button" aria-pressed="false">All Time</button>
-                </div>
-              </div>
-              <div class="cf-heatmap-stats" id="cf-heatmap-summary">
-                <div class="cf-skeleton cf-skeleton-text" style="width: 100%; max-width: 300px;"></div>
-              </div>
-              <div class="cf-heatmap-scroll-wrap">
-                <div class="cf-heatmap-inner">
-                  <div class="cf-heatmap-weekdays" aria-hidden="true">
-                    <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
-                  </div>
-                  <div class="cf-heatmap-grid-area" id="cf-heatmap-grid-area">
-                    <div class="cf-skeleton cf-skeleton-box" style="height: 110px; width: 100%; max-width: 650px;"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="cf-heatmap-footer">
-                <span>Hover or focus a cell to see that day's submissions.</span>
-                <div class="cf-heatmap-legend" aria-hidden="true">
-                  <span>Less</span>
-                  <span class="cf-heatmap-cell" data-level="0"></span>
-                  <span class="cf-heatmap-cell" data-level="1"></span>
-                  <span class="cf-heatmap-cell" data-level="2"></span>
-                  <span class="cf-heatmap-cell" data-level="3"></span>
-                  <span class="cf-heatmap-cell" data-level="4"></span>
-                  <span>More</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Breakdowns -->
-            <div class="cf-breakdown-grid">
-              <div class="cf-panel">
-                <h2 class="cf-panel-title">Languages</h2>
-                <div class="cf-panel-subtitle">Submissions per language</div>
-                <div class="cf-bars" id="cf-lang-bars"><div class="cf-skeleton cf-skeleton-box"></div></div>
-              </div>
-              <div class="cf-panel">
-                <h2 class="cf-panel-title">Problem Ratings</h2>
-                <div class="cf-panel-subtitle">Solved problems by difficulty</div>
-                <div class="cf-bars" id="cf-difficulty-bars"><div class="cf-skeleton cf-skeleton-box"></div></div>
-              </div>
-              <div class="cf-panel">
-                <h2 class="cf-panel-title">Tags</h2>
-                <div class="cf-panel-subtitle">Topics covered by solved problems</div>
-                <div class="cf-bars" id="cf-tag-bars"><div class="cf-skeleton cf-skeleton-box"></div></div>
-              </div>
-            </div>
-
-            <!-- Solved Problems -->
-            <div class="cf-panel">
-              <div class="cf-panel-header">
-                <div>
-                  <h2 class="cf-panel-title">Solved Problems</h2>
-                  <div class="cf-panel-subtitle">Every problem with at least one accepted submission</div>
-                </div>
-                <span class="cf-count" id="cf-solved-count">Loading...</span>
-              </div>
-              <div class="cf-toolbar">
-                <input type="search" class="cf-input" id="cf-solved-search" placeholder="Search problem name or ID..." aria-label="Search solved problems">
-                <div class="cf-filter-group">
-                  <select class="cf-select" id="cf-solved-tag" aria-label="Filter by tag">
-                    <option value="all">All Tags</option>
-                  </select>
-                  <select class="cf-select" id="cf-solved-sort" aria-label="Sort solved problems">
-                    <option value="newest">Newest First</option>
-                    <option value="oldest">Oldest First</option>
-                    <option value="hardest">Hardest First</option>
-                    <option value="easiest">Easiest First</option>
-                    <option value="az">Name (A-Z)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="cf-list" id="cf-solved-list">
-                <div class="cf-skeleton cf-skeleton-box" style="height: 120px;"></div>
-              </div>
-              <div class="cf-pagination" id="cf-solved-pagination" hidden>
-                <span id="cf-solved-page-info"></span>
-                <div class="cf-page-nav">
-                  <button class="cf-btn" id="cf-solved-prev" type="button">Previous</button>
-                  <button class="cf-btn" id="cf-solved-next" type="button">Next</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Recent Submissions -->
-            <div class="cf-panel">
-              <div class="cf-panel-header">
-                <div>
-                  <h2 class="cf-panel-title">Submissions</h2>
-                  <div class="cf-panel-subtitle">Full submission log with verdict, language, time, and memory</div>
-                </div>
-                <select class="cf-select" id="cf-sub-verdict" aria-label="Filter by verdict">
-                  <option value="all">All Verdicts</option>
-                </select>
-              </div>
-              <div class="cf-table-wrap" id="cf-sub-table" role="region" aria-label="Submissions, scrollable" tabindex="0">
-                <div class="cf-skeleton cf-skeleton-box" style="height: 160px;"></div>
-              </div>
-              <div class="cf-pagination" id="cf-sub-pagination" hidden>
-                <span id="cf-sub-page-info"></span>
-                <div class="cf-page-nav">
-                  <button class="cf-btn" id="cf-sub-prev" type="button">Previous</button>
-                  <button class="cf-btn" id="cf-sub-next" type="button">Next</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Blog Entries (shown only when there are any) -->
-            <div class="cf-panel" id="cf-blog-panel" hidden>
-              <h2 class="cf-panel-title">Blog Entries</h2>
-              <div class="cf-panel-subtitle">Posts published on Codeforces</div>
-              <ul class="cf-blog-list" id="cf-blog-list"></ul>
-            </div>
-
-          </section>
-
-          <script src="/assets/js/codeforces-dashboard.js" defer></script>
-
-        </div>
-      </article>
+      </div>
     </div>
   </main>
 
@@ -456,6 +315,7 @@
     </div>
   </footer>
 
+  <script type="module" src="/assets/js/coding/main.js"></script>
 </body>
 
 </html>

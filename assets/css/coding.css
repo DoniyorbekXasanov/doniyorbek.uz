@@ -1,0 +1,631 @@
+/* ===================================================================
+   /coding — Codeforces Analytics Dashboard
+   =================================================================== */
+
+.cf-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* --- Page Header --- */
+.cf-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cf-page-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.cf-page-subtitle {
+  font-size: 14px;
+  color: var(--grey-color);
+  margin: 0;
+}
+
+.cf-sync-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cf-sync-status {
+  font-size: 12px;
+  color: var(--grey-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.cf-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.cf-refresh-btn:hover:not(:disabled) {
+  border-color: var(--brand-color);
+}
+
+.cf-refresh-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.cf-refresh-btn--spinning svg {
+  animation: cf-spin 0.9s linear infinite;
+}
+
+@keyframes cf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Error Banner --- */
+.cf-error-banner {
+  padding: 12px 16px;
+  border: 1px solid var(--danger-color);
+  border-radius: 6px;
+  background-color: var(--danger-bg);
+  color: var(--danger-color);
+  font-size: 14px;
+}
+
+/* --- Sections --- */
+.cf-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cf-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.cf-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.cf-section-meta {
+  font-size: 12px;
+  color: var(--grey-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Cards & Panels --- */
+.cf-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.cf-panel-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: var(--text-color);
+}
+
+/* --- Profile Overview --- */
+.cf-profile-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.cf-profile-avatar-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  flex-shrink: 0;
+}
+
+.cf-profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cf-profile-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cf-profile-identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+}
+
+.cf-profile-rank-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.cf-profile-handle {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+
+.cf-profile-handle:hover {
+  text-decoration: underline;
+}
+
+.cf-profile-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 13px;
+  color: var(--grey-color-dark);
+}
+
+.cf-profile-detail-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cf-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* --- KPI Metric Tiles --- */
+.cf-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.cf-kpi {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.cf-kpi-label {
+  font-size: 12px;
+  color: var(--grey-color);
+  margin-bottom: 4px;
+}
+
+.cf-kpi-value {
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.cf-kpi-sub {
+  font-size: 12px;
+  color: var(--grey-color);
+  margin-top: 3px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Codeforces Rank Colors (Standard CF Palette) --- */
+.cf-rank--newbie { color: #808080; }
+.cf-rank--pupil { color: #008000; }
+.cf-rank--specialist { color: #03a89e; }
+.cf-rank--expert { color: #0000ff; }
+.cf-rank--candidate-master { color: #aa00aa; }
+.cf-rank--master { color: #ff8c00; }
+.cf-rank--international-master { color: #ff8c00; }
+.cf-rank--grandmaster { color: #ff0000; }
+.cf-rank--international-grandmaster { color: #ff0000; }
+.cf-rank--legendary-grandmaster { color: #ff0000; }
+
+[data-theme="dark"] .cf-rank--newbie { color: #a0a0a0; }
+[data-theme="dark"] .cf-rank--pupil { color: #4caf50; }
+[data-theme="dark"] .cf-rank--specialist { color: #26c6da; }
+[data-theme="dark"] .cf-rank--expert { color: #6488ff; }
+[data-theme="dark"] .cf-rank--candidate-master { color: #d666d6; }
+
+/* ===================================================================
+   EXACT CODEFORCES RATING HISTORY GRAPH
+   Preserves original Codeforces visual identity in both light/dark modes
+   =================================================================== */
+.cf-rating-box {
+  background-color: #f8f8f8;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 10px 14px 12px;
+  color: #222222;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.cf-rating-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  min-height: 24px;
+}
+
+.cf-rating-select {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #222222;
+  background-color: #ffffff;
+  border: 1px solid #b9b9b9;
+  border-radius: 2px;
+  padding: 2px 6px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.cf-rating-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #333333;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid #d4d4d4;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.cf-rating-legend-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 10px;
+  background-color: #edc240;
+  border: 1px solid #c99d1a;
+  flex-shrink: 0;
+}
+
+.cf-rating-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  background-color: #ffffff;
+}
+
+.cf-rating-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+.cf-rating-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.97);
+  border: 1px solid #999999;
+  border-radius: 3px;
+  padding: 7px 10px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #222222;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  max-width: 280px;
+  white-space: normal;
+}
+
+.cf-rating-tooltip-title {
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: #111111;
+}
+
+.cf-rating-tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.cf-delta-pos {
+  color: #1f8b24;
+  font-weight: 700;
+}
+
+.cf-delta-neg {
+  color: #c62828;
+  font-weight: 700;
+}
+
+.cf-delta-zero {
+  color: #666666;
+  font-weight: 700;
+}
+
+/* --- Analytics Grids --- */
+.cf-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media screen and (max-width: 780px) {
+  .cf-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-profile-card {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+}
+
+/* --- Horizontal Bar Lists --- */
+.cf-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.cf-bar-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 160px) 1fr auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.cf-bar-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-color);
+}
+
+.cf-bar-track {
+  height: 8px;
+  background-color: var(--grey-color-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cf-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--brand-color);
+}
+
+.cf-bar-fill--ok { background-color: var(--success-color); }
+.cf-bar-fill--wa { background-color: var(--danger-color); }
+.cf-bar-fill--tle { background-color: var(--warning-color); }
+.cf-bar-fill--other { background-color: var(--grey-color); }
+
+.cf-bar-value {
+  font-size: 12px;
+  color: var(--grey-color-dark);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* --- Difficulty Histogram --- */
+.cf-histogram {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 160px;
+  padding-top: 20px;
+  overflow-x: auto;
+}
+
+.cf-hist-col {
+  flex: 1 0 36px;
+  max-width: 56px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.cf-hist-count {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--grey-color-dark);
+}
+
+.cf-hist-bar {
+  width: 100%;
+  min-height: 3px;
+  border-radius: 3px 3px 0 0;
+  background-color: var(--brand-color);
+}
+
+.cf-hist-label {
+  font-size: 11px;
+  color: var(--grey-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Activity Heatmap --- */
+.cf-heatmap-wrap {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.cf-heatmap {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 11px);
+  gap: 3px;
+  width: max-content;
+}
+
+.cf-heatmap-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  background-color: var(--grey-color-light);
+}
+
+.cf-heatmap-cell[data-level="1"] { background-color: rgba(42, 122, 226, 0.30); }
+.cf-heatmap-cell[data-level="2"] { background-color: rgba(42, 122, 226, 0.55); }
+.cf-heatmap-cell[data-level="3"] { background-color: rgba(42, 122, 226, 0.80); }
+.cf-heatmap-cell[data-level="4"] { background-color: var(--brand-color); }
+
+[data-theme="dark"] .cf-heatmap-cell[data-level="1"] { background-color: rgba(122, 167, 255, 0.25); }
+[data-theme="dark"] .cf-heatmap-cell[data-level="2"] { background-color: rgba(122, 167, 255, 0.50); }
+[data-theme="dark"] .cf-heatmap-cell[data-level="3"] { background-color: rgba(122, 167, 255, 0.75); }
+[data-theme="dark"] .cf-heatmap-cell[data-level="4"] { background-color: var(--brand-color); }
+
+.cf-heatmap-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--grey-color);
+}
+
+.cf-heatmap-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- Tables --- */
+.cf-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-color);
+}
+
+.cf-table {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.cf-table th,
+.cf-table td {
+  padding: 9px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.cf-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.cf-table th {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--grey-color-dark);
+  background-color: var(--card-bg);
+  white-space: nowrap;
+}
+
+.cf-table .cf-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* --- Verdict Badges --- */
+.cf-verdict {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cf-verdict--ok {
+  color: var(--success-color);
+  background-color: var(--success-bg);
+}
+
+.cf-verdict--err {
+  color: var(--danger-color);
+  background-color: var(--danger-bg);
+}
+
+.cf-verdict--warn {
+  color: var(--warning-color);
+  background-color: var(--warning-bg);
+}
+
+/* --- Select Filter --- */
+.cf-select {
+  font-size: 13px;
+  padding: 5px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* --- Empty & Skeleton States --- */
+.cf-empty {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--grey-color);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+}
+
+.cf-skeleton {
+  border-radius: 8px;
+  background: var(--grey-color-light);
+  animation: cf-pulse 1.4s ease-in-out infinite;
+}
+
+.cf-skeleton--profile { height: 150px; }
+.cf-skeleton--chart { height: 350px; }
+.cf-skeleton--table { height: 180px; }
+.cf-skeleton--grid { height: 220px; }
+
+@keyframes cf-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
